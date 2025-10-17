@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: ExhibitMystique
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: -3789308370094699279, guid: 0af65c920570d2f4a9b1d631a1e4f6a5, type: 3}
   exhibitName: New Exhibit
   interest: mystique_objects
