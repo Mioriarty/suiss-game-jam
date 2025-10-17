@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: [Parent, Parent, Adult]
+  tags:
+  - Parent
+  - Parent
+  - Adult
   layers:
   - Default
   - TransparentFX

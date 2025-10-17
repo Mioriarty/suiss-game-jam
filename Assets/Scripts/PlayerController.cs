@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Math = Unity.Mathematics.Geometry.Math;
 
 public class PlayerController : MonoBehaviour
@@ -18,11 +19,13 @@ public class PlayerController : MonoBehaviour
 
     public Exhibit inventoryExhibit;
     private Rigidbody2D rb;
+    public Image inventoryImage;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        updateInventoryUI();
     }
 
     void ResetColor()
@@ -55,6 +58,17 @@ public class PlayerController : MonoBehaviour
             
             // after 2 seconds, unstun the player
             Invoke("UnstunPlayer", 1.0f);
+        }
+    }
+    void updateInventoryUI()
+    {
+        if (inventoryExhibit != null)
+        {
+            inventoryImage.sprite = inventoryExhibit.Image;
+        }
+        else
+        {
+            inventoryImage.sprite = null;
         }
     }
     // Update is called once per frame
@@ -91,29 +105,9 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Rotate(Vector3.forward * (-turnInput * turnSpeed * Time.deltaTime));
-        // project onto forward direction
         rb.linearVelocity = Vector3.Project(rb.linearVelocity, transform.up);
         rb.angularVelocity = 0.0f;
 
-        // if (Input.GetKey(KeyCode.W))
-        // {
-        //     speed += acceleration * Time.deltaTime;
-        // }
-        // if (Input.GetKey(KeyCode.A))
-        // {
-        //     transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
-        // }
-        // if (Input.GetKey(KeyCode.S))
-        // {
-        //     speed -= acceleration * Time.deltaTime;
-        // }
-        // if (Input.GetKey(KeyCode.D))
-        // {
-        //     transform.Rotate(-Vector3.forward * turnSpeed * Time.deltaTime);
-        // }
-        // speed -= acceleration * 0.5f * Time.deltaTime; // Natural deceleration
-        // speed = Mathf.Clamp(speed, 0, 20);
-        // transform.Translate(Vector3.up * speed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -143,6 +137,8 @@ public class PlayerController : MonoBehaviour
                     Exhibit temp = inventoryExhibit;
                     inventoryExhibit = exhibitController.exhibit;
                     exhibitController.SetExhibit(temp);
+                    // Update inventory UI
+                    updateInventoryUI();
                 }
             }
         }
