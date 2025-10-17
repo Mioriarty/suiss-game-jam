@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: Exhibit1
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   exhibitName: New Exhibit
   interest: 
