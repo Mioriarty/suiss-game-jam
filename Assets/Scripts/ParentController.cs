@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ParentController : MonoBehaviour
 {
     public ExhibitController target;
+    public String[] interests;
     public float speed = 1.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,8 +27,11 @@ public class ParentController : MonoBehaviour
         {
             ExhibitController[] exhibits = FindObjectsByType<ExhibitController>(FindObjectsSortMode.None);
 
+            // filter exhibits by interests
+            exhibits = Array.FindAll(exhibits, exhibit => Array.Exists(interests, interest => interest == exhibit.exhibit.Interest));
+
             // select a random exhibit
-            ExhibitController randomExhibit = exhibits[Random.Range(0, exhibits.Length)];
+            ExhibitController randomExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = randomExhibit;
 
         }
