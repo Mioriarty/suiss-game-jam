@@ -25,24 +25,28 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void resetColor()
+    void ResetColor()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    void SetColor(Color color, float time)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+        Invoke("ResetColor", time);
     }
     
     void UnstunPlayer()
     {
         isStunned = false;
-        // reset color to white
-        GetComponent<SpriteRenderer>().color = Color.brown;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Parent"))
+        if (collision.gameObject.CompareTag("Adult"))
         {
             isStunned = true;
             // set color to red
-            GetComponent<SpriteRenderer>().color = Color.red;
+            
             
             // add a force away from the collision point
             Vector3 collisionPoint = collision.contacts[0].point;
@@ -56,8 +60,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (isStunned) return;
+
+        if (isStunned)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+            return;
+        }
         
         float moveInput = Input.GetAxis("Vertical");
         float turnInput = Input.GetAxis("Horizontal");
@@ -68,6 +76,7 @@ public class PlayerController : MonoBehaviour
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect
             rb.AddForce(transform.up * (acceleration * speedFactor), ForceMode2D.Impulse);
+            SetColor(Color.green, 0.5f);
         }
         rb.linearDamping = normalDamping;
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
