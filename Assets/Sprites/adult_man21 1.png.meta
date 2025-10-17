@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 60581795d11d18f40b5c3ac88ee22690
+guid: c6d856afa2a10f143950670c2122cee7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6555817891360313207
-    second: adult_man11_0
+      213: -1977220685743366546
+    second: adult_man21 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: adult_man11_0
+      name: adult_man21 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 980715dac5e0505a0800000000000000
-      internalID: -6555817891360313207
+      spriteID: e6e56b713408f84e0800000000000000
+      internalID: -1977220685743366546
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      adult_man11_0: -6555817891360313207
+      adult_man21 1_0: -1977220685743366546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
