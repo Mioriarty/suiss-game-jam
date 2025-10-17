@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2b7b3bf7e93c6d4893047805c489f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 2
-  distanceThreshold: 1.5
+  moveSpeed: 1
+  distanceThreshold: 1.2
   distance: 0

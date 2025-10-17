@@ -6,7 +6,6 @@ public class VisitorController : MonoBehaviour
     private Vector2 _originalPosition;
     public float moveSpeed;
     public float distanceThreshold;
-    public float distance;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,10 +22,13 @@ public class VisitorController : MonoBehaviour
         bool isNearAdult = false;
         foreach (GameObject adult in adults)
         {
-            distance = Vector2.Distance(transform.position, adult.transform.position);
-            if (distance < distanceThreshold)
+            float distance = Vector2.Distance(transform.position, adult.transform.position);
+            if (distance < distanceThreshold + 0.5f)
             {
                 isNearAdult = true;
+            }
+            if (distance < distanceThreshold)
+            {
                 Vector2 directionAway = (transform.position - adult.transform.position).normalized;
                 transform.position = Vector2.MoveTowards(transform.position,
                     (Vector2)transform.position + directionAway, moveSpeed * Time.deltaTime);
