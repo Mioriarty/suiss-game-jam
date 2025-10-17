@@ -1,4 +1,4 @@
-# SUISS Game Jam
+# SWISS Game Jam
 
 Welcome to the SUISS Game Jam project! This repository contains the game developed during the game jam event.
 
