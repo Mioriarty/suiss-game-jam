@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ParentController : MonoBehaviour
@@ -6,6 +8,8 @@ public class ParentController : MonoBehaviour
     public GameObject target;
     public String[] interests;
     public float speed = 1.0f;
+
+    public List<Vector3> path;
 
     public float MaxBoredom, Boredom;
     [SerializeField] BoredomBarController boredomBarController;
@@ -19,10 +23,15 @@ public class ParentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (target != null && path != null && path.Count > 0)
         {
-            Vector3 targetPosition = target.transform.position;
+            Vector3 targetPosition = path[0];
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                path.RemoveAt(0);
+            }
 
             if (Vector3.Distance(transform.position, target.transform.position) < 0.1f)
             {
@@ -51,6 +60,26 @@ public class ParentController : MonoBehaviour
             ExhibitController randomExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = randomExhibit.gameObject;
 
+            path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
+
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (path != null)
+        {
+            // Prioritize this drawing, put high z value
+
+
+            Gizmos.color = Color.red;
+
+            // Draw path as line
+            for (int i = 0; i < path.Count - 1; i++)
+            {
+                // Prioritize this drawing, put high z value
+                Gizmos.DrawLine(path[i] + Vector3.forward * 0.1f, path[i + 1] + Vector3.forward * 0.1f);
+            }
         }
     }
 
