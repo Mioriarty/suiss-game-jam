@@ -101,4 +101,6 @@ InitTestScene*.unity*
 # Local VS Code settings
 .vscode/
 
+.idea/
+
 .DS_Store
