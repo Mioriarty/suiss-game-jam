@@ -7,7 +7,7 @@ using UnityEngine.UI;
 // Simple controller that applies an Exhibit ScriptableObject to UI components.
 public class ExhibitController : MonoBehaviour
 {
-    [SerializeField] private Exhibit exhibit;
+    [SerializeField] public Exhibit exhibit;
     private SpriteRenderer spriteRenderer;
 
     private void Start()
