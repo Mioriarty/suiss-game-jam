@@ -26,10 +26,22 @@ public class AdultController : MonoBehaviour
     [SerializeField] private RectTransform boredomBarContainer;
     [SerializeField] private float boredomBarSpacing = 0.5f;
     [SerializeField] BoredomBarController boredomBarController;
+    [SerializeField] private Color barColor = Color.yellow;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {   
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null && spriteRenderer.sprite != null)
+        {
+            string spriteName = spriteRenderer.sprite.name;
+            // split by underscore 
+            string id = spriteName.Split('n')[1].Split(' ')[0];
+            
+            int.TryParse(id, out int exhibitId);
+            Debug.Log("ID: " + exhibitId);
+
+        }
         EnsureBoredomBar();
         if (boredomBarController != null)
         {
