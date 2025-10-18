@@ -9,6 +9,8 @@ public class AdultController : MonoBehaviour
     public String[] interests;
     public float speed = 1.0f;
     public float safetyDistance = 1.0f;
+    public GameObject desiredObject;
+    
     private bool reachedTarget = false;
     private bool isWaiting = false;
     public float waitTimeAtExhibit = 2.0f;
@@ -117,9 +119,10 @@ public class AdultController : MonoBehaviour
             Debug.Log("Found " + exhibits.Length + " exhibits of interest.");
 
             // select a random exhibit
-            ExhibitController randomExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
-            target = randomExhibit.gameObject;
+            ExhibitController targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
+            target = targetExhibit.gameObject;
 
+            desiredObject.GetComponent<SpriteRenderer>().sprite = targetExhibit.exhibit.Image;
             Debug.Log("New target selected: " + target.transform.position);
             Debug.Log("Current position: " + transform.position);
             path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
