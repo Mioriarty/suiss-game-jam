@@ -32,8 +32,19 @@ public class AdultController : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+    {
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        // find the sprite renderer named "AdultSprite"
+        SpriteRenderer spriteRenderer = null;
+        foreach (SpriteRenderer sr in spriteRenderers)
+        {
+            if (sr.gameObject.name == "AdultSprite")
+            {
+                spriteRenderer = sr;
+                break;
+            }
+        }
+
         if (spriteRenderer != null && spriteRenderer.sprite != null)
         {
             string spriteName = spriteRenderer.sprite.name;
@@ -55,10 +66,13 @@ public class AdultController : MonoBehaviour
                 ColorUtility.TryParseHtmlString("#614dfd", out barColor);
             }
 
+            Debug.Log("Adult sprite ID: " + id + " Color: " + barColor);
+
         }
         EnsureBoredomBar();
         if (boredomBarController != null)
-        {
+        {   
+
             boredomBarController.SetMaxBoredom(MaxBoredom);
             boredomBarController.SetFillColor(barColor);
         }
