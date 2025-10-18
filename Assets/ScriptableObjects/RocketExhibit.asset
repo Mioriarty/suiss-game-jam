@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: -7700914553007193500, guid: 42a3b56ba00707243ad9982abdee5f81, type: 3}
   exhibitName: rocket
-  interest: engineering
+  
