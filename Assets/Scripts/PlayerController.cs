@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Math = Unity.Mathematics.Geometry.Math;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float acceleration;
     public float breakDamping;
     public float normalDamping;
@@ -20,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public Exhibit inventoryExhibit;
     private Rigidbody2D rb;
     public Image inventoryImage;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,28 +35,30 @@ public class PlayerController : MonoBehaviour
         GetComponent<SpriteRenderer>().color = color;
         Invoke("ResetColor", time);
     }
-    
+
     void UnstunPlayer()
     {
         isStunned = false;
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Adult"))
         {
             isStunned = true;
             // set color to red
-            
-            
+
+
             // add a force away from the collision point
             Vector3 collisionPoint = collision.contacts[0].point;
             Vector3 directionAway = (transform.position - collisionPoint).normalized;
             rb.AddForce(directionAway * (pushBackForceOnStun * 5.0f), ForceMode2D.Impulse);
-            
+
             // after 2 seconds, unstun the player
             Invoke("UnstunPlayer", 1.0f);
         }
     }
+
     void updateInventoryUI()
     {
         if (inventoryExhibit != null)
@@ -71,20 +70,21 @@ public class PlayerController : MonoBehaviour
             inventoryImage.sprite = null;
         }
     }
+
     // Update is called once per frame
     void Update()
     {
-
         if (isStunned)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
             return;
         }
-        
+
         float moveInput = Input.GetAxis("Vertical");
         float turnInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ||
+            Gamepad.current.rightTrigger.wasPressedThisFrame)
         {
             // add less force if we are close to max speed
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
@@ -92,8 +92,9 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * (acceleration * speedFactor), ForceMode2D.Impulse);
             SetColor(Color.green, 0.5f);
         }
+
         rb.linearDamping = normalDamping;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current.leftTrigger.isPressed)
         {
             rb.linearDamping = breakDamping;
         }
@@ -109,7 +110,7 @@ public class PlayerController : MonoBehaviour
         rb.angularVelocity = 0.0f;
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current.aButton.wasPressedThisFrame)
         {
             // Get All exhibits on whose triggers we are
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.1f, LayerMask.GetMask("Exhibit"));
@@ -142,7 +143,5 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
     }
-
 }
