@@ -24,12 +24,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public Image inventoryImage;
     public Light2D globalLight;
+    public ParticleSystem ps;
     private float remainingStunTime = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ps = GetComponentInChildren<ParticleSystem>();
         updateInventoryUI();
     }
 
@@ -102,6 +104,8 @@ public class PlayerController : MonoBehaviour
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect
             rb.AddForce(transform.up * (acceleration * accelerationFactor * speedFactor), ForceMode2D.Impulse);
+
+            ps.Play();
         }
 
         rb.linearDamping = normalDamping;
