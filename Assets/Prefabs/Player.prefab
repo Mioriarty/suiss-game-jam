@@ -209,8 +209,8 @@ MonoBehaviour:
   maxBloomIntensity: 1
   minVignetteIntensity: 0.45
   maxVignetteIntensity: 0.05
-  minSaturation: -30
-  maxSaturation: 10
+  minSaturation: -80
+  maxSaturation: 80
   minCameraSize: 11
   maxCameraSize: 12
 --- !u!1 &3141932213556337330
