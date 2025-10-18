@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: -4809553063073545423, guid: 23366b9e4ed9fe64781217612617613b, type: 3}
   exhibitName: telescope
-  interest: astronomie
+  

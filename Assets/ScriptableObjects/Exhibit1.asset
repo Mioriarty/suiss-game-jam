@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: -3083636630504189760, guid: 8cd54e76dcee9e3438d07c50c2ad6b55, type: 3}
   exhibitName: New Exhibit
-  interest: astrology
