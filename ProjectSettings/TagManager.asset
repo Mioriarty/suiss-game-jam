@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Parent
-  - Parent
   - Adult
   layers:
   - Default

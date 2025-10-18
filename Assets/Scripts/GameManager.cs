@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     
     void EndLevelByTimeElapsed()
     {
-        StaticTracker.SetGameOverParams(levelNumber, StaticTracker.FailureType.TimeElapsed, Time.time);
-        loadManager.GetComponent<LoadController>().LoadScene("FailureScreen");
+        StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.TimeElapsed, Time.time);
+        loadManager.GetComponent<LoadController>().LoadScene("GameResultScreen");
     }
 }

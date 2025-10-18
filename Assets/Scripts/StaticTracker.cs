@@ -8,27 +8,27 @@ public static class StaticTracker
     public static int nextLevel;
     public static bool devMode = false;
     public static Dictionary<string, bool> achievements;
-    public enum FailureType { Quit, TimeElapsed }
-    public static GameOverParams gop;
+    public enum GameEndType { Success, Quit, TimeElapsed }
+    public static GameResult gr;
 
-    public class GameOverParams
+    public class GameResult
     {
-        public GameOverParams(int iLevel, FailureType iFailureType, float iFailureTime)
+        public GameResult(int iLevel, GameEndType iGameEndType, float iEndTime)
         {
             Level = iLevel;
-            FailureType = iFailureType;
-            FailureTime = iFailureTime;
+            GameEnd = iGameEndType;
+            EndTime = iEndTime;
         }
         public int Level { get; }
-        public FailureType FailureType { get; }
-        public float FailureTime { get; }
+        public GameEndType GameEnd { get; }
+        public float EndTime { get; }
     }
 
-    public static void SetGameOverParams(int level, FailureType failureType, float failureTime)
+    public static void SetGameResult(int level, GameEndType gameEnd, float failureTime)
     {
-        gop = new GameOverParams(level, failureType, failureTime);
+        gr = new GameResult(level, gameEnd, failureTime);
     }
 
-    public static GameOverParams GetGameOverParams() { return gop; }
-    public static void ClearGameOverParams() { gop = null; }
+    public static GameResult GetGameResult() { return gr; }
+    public static void ClearGameResult() { gr = null; }
 }
