@@ -461,6 +461,7 @@ MonoBehaviour:
   MaxBoredom: 100
   Width: 550
   Height: 40
+  FillColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   boredomBarRect: {fileID: 1093451226}
 --- !u!1001 &258577385
 PrefabInstance:
@@ -1771,7 +1772,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: 8999ef1fc461b44d79459f42f012d364, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2349,7 +2350,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: 7b072e2570cba43058ca56d9ea48e1f1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2754,7 +2755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722671487074221575, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: 'interests.Array.data[0]'
-      value: astrology
+      value: book
       objectReference: {fileID: 0}
     - target: {fileID: 8527087554369794750, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: m_Name
@@ -11117,7 +11118,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f3a895065650649ab8ac830ff745e8db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11729,7 +11730,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: a1484b13d75c04f2e97d4276e2b6eb31, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11857,7 +11858,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f149a860342754b58b059f523975b45d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12042,7 +12043,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: a5f1ecf024e90462a984005a21561baa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12407,7 +12408,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e3f1715da3d14241b59f36d0b9779ef, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12595,7 +12596,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: b93442dce1687411095a3d8b7e8bd9a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
