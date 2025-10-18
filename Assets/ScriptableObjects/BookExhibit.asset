@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: BookExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 0}
+  image: {fileID: -3083636630504189760, guid: 8cd54e76dcee9e3438d07c50c2ad6b55, type: 3}
   exhibitName: Book
   interest: literacy

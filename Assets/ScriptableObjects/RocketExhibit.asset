@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: RocketExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 0}
+  image: {fileID: -7700914553007193500, guid: 42a3b56ba00707243ad9982abdee5f81, type: 3}
   exhibitName: rocket
   interest: engineering
