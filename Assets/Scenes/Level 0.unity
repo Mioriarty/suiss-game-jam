@@ -169,7 +169,7 @@ MonoBehaviour:
   textBox: {fileID: 60060039}
   inventoryUI: {fileID: 694158196}
   directionIndicator: {fileID: 786144334}
-  firstExhibit: {fileID: 0}
+  firstExhibit: {fileID: 924238424}
   textboxTextmanger: {fileID: 1553950490}
   secondInterestExhibit: {fileID: 11400000, guid: f3a895065650649ab8ac830ff745e8db, type: 2}
 --- !u!61 &40440109
@@ -3225,6 +3225,11 @@ PrefabInstance:
 --- !u!4 &924238422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3820338226013062671, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
+  m_PrefabInstance: {fileID: 924238421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &924238424 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1278229934467563637, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
   m_PrefabInstance: {fileID: 924238421}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &931660869
