@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         float turnInput = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ||
-            Gamepad.current.rightTrigger.wasPressedThisFrame)
+            (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame))
         {
             // add less force if we are close to max speed
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.linearDamping = normalDamping;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current.leftTrigger.isPressed)
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || (Gamepad.current != null && Gamepad.current.leftTrigger.isPressed))
         {
             rb.linearDamping = breakDamping;
         }
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         rb.angularVelocity = 0.0f;
 
 
-        if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current.aButton.wasPressedThisFrame)
+        if (Input.GetKeyDown(KeyCode.Space) || (Gamepad.current != null && Gamepad.current.aButton.wasPressedThisFrame))
         {
             // Get All exhibits on whose triggers we are
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.1f, LayerMask.GetMask("Exhibit"));
