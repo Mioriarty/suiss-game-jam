@@ -21,6 +21,7 @@ public class AdultController : MonoBehaviour
     public List<Vector3> path;
 
     public float MaxBoredom, Boredom;
+    public List<GameObject> nextTargets;
 
     [SerializeField] private Canvas uiCanvas;                  
     [SerializeField] private BoredomBarController boredomBarPrefab;
@@ -160,24 +161,35 @@ public class AdultController : MonoBehaviour
             adultAnimator.SetBool("isHappy", false);
             adultAnimator.SetBool("isBored", false);
 
-            Debug.Log("Selecting new target for adult.");
-            ExhibitController[] exhibits = FindObjectsByType<ExhibitController>(FindObjectsSortMode.None);
-
-            // filter exhibits by interests
-            exhibits = Array.FindAll(exhibits, exhibit => Array.Exists(interests, interest => interest == exhibit.exhibit.Interest));
-
-            // filter out current target
-            if (target != null)
+            ExhibitController targetExhibit;
+            if (nextTargets!= null && nextTargets.Count > 0)
             {
-                exhibits = Array.FindAll(exhibits, exhibit => exhibit.gameObject != target);
+                target = nextTargets[0];
+                nextTargets.RemoveAt(0);
+                Debug.Log("Selecting predefined target for adult. remaining targets: " + nextTargets.Count);
+                targetExhibit = target.GetComponent<ExhibitController>();
+            }            
+            else
+            {
+                Debug.Log("Selecting new target for adult.");
+                ExhibitController[] exhibits = FindObjectsByType<ExhibitController>(FindObjectsSortMode.None);
+
+                // filter exhibits by interests
+                exhibits = Array.FindAll(exhibits,
+                    exhibit => Array.Exists(interests, interest => interest == exhibit.exhibit.Interest));
+
+                // filter out current target
+                if (target != null)
+                {
+                    exhibits = Array.FindAll(exhibits, exhibit => exhibit.gameObject != target);
+                }
+
+                Debug.Log("Found " + exhibits.Length + " exhibits of interest.");
+
+                // select a random exhibit
+                targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
+                target = targetExhibit.gameObject;
             }
-
-            Debug.Log("Found " + exhibits.Length + " exhibits of interest.");
-
-            // select a random exhibit
-            ExhibitController targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
-            target = targetExhibit.gameObject;
-
             desiredObject.GetComponent<SpriteRenderer>().sprite = targetExhibit.exhibit.Image;
             Debug.Log("New target selected: " + target.transform.position);
             Debug.Log("Current position: " + transform.position);

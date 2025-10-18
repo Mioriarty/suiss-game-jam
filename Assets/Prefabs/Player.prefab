@@ -327,7 +327,7 @@ MonoBehaviour:
   maxBloomIntensity: 1
   minVignetteIntensity: 0.45
   maxVignetteIntensity: 0.05
-  minSaturation: -80
+  minSaturation: -20
   maxSaturation: 80
   minCameraSize: 11
   maxCameraSize: 12
@@ -622,7 +622,7 @@ Animator:
   m_GameObject: {fileID: 7912036317267406333}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f513903f7aac64a5e8ce3ab6b20ad431, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
