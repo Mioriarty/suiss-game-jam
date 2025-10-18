@@ -16,7 +16,7 @@ public class AdultController : MonoBehaviour
     private bool reachedTarget = false;
     private bool isWaiting = false;
     public float waitTimeAtExhibit = 2.0f;
-    private float waitTimer = 0.0f;
+    public float waitTimer = 0.0f;
 
     public List<Vector3> path;
 
