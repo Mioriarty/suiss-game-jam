@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1072609621115767111}
   - component: {fileID: 942810101650968044}
   - component: {fileID: 6093753290981107761}
-  - component: {fileID: 2321996046699707356}
+  - component: {fileID: 7591245730922307829}
   - component: {fileID: 2637587922084222431}
   m_Layer: 6
   m_Name: Player
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1619631095638244411}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -116,7 +116,6 @@ MonoBehaviour:
   turnSpeed: 200
   maxSpeed: 30
   minSpeed: 0.5
-  isStunned: 0
   pushBackForceOnStun: 0.5
   inventoryExhibit: {fileID: 0}
   inventoryImage: {fileID: 0}
@@ -147,8 +146,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &2321996046699707356
-CapsuleCollider2D:
+--- !u!58 &7591245730922307829
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -181,9 +180,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 1.9999999}
-  m_Direction: 0
+  m_Offset: {x: 0, y: -0.42}
+  m_Radius: 0.5
 --- !u!114 &2637587922084222431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +465,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4542054685055689291, guid: 223578ebd6850a848868e409cd716066, type: 3}
+  m_Sprite: {fileID: 1810880197796642677, guid: c41fcbe5307615048a7eabe99b99ca85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
