@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: ComputerExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 0}
+  image: {fileID: 8857992262350341199, guid: 85df7c69dde2fcd41963f775d8d6ad2b, type: 3}
   exhibitName: Computer
   interest: 'technology
 

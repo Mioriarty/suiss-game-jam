@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8b9aee2b3d8e4ec41a25a1a7f4ca3707
+guid: 0fc744c4359727240a26c44aba4331c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1926640866534617454
-    second: exhibit_book1 1_0
+      213: -2762511757883489735
+    second: dustcloudstarsspritesheet1_0
+  - first:
+      213: 8387313726592364293
+    second: dustcloudstarsspritesheet1_1
+  - first:
+      213: -4660293741574441954
+    second: dustcloudstarsspritesheet1_2
+  - first:
+      213: -2834248802425295064
+    second: dustcloudstarsspritesheet1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exhibit_book1 1_0
+      name: dustcloudstarsspritesheet1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 13
+        width: 33
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e61fb8b09adccba10800000000000000
-      internalID: 1926640866534617454
+      spriteID: 932c38f413699a9d0800000000000000
+      internalID: -2762511757883489735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dustcloudstarsspritesheet1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50fab4d7569b56470800000000000000
+      internalID: 8387313726592364293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dustcloudstarsspritesheet1_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 2
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14ba78888f435fb0800000000000000
+      internalID: -4660293741574441954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dustcloudstarsspritesheet1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f2d5e0bb9baa8d0800000000000000
+      internalID: -2834248802425295064
       vertices: []
       indices: 
       edges: []
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      exhibit_book1 1_0: 1926640866534617454
+      dustcloudstarsspritesheet1_0: -2762511757883489735
+      dustcloudstarsspritesheet1_1: 8387313726592364293
+      dustcloudstarsspritesheet1_2: -4660293741574441954
+      dustcloudstarsspritesheet1_3: -2834248802425295064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
