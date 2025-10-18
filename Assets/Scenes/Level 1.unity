@@ -128,6 +128,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
+      propertyPath: globalLight
+      value: 
+      objectReference: {fileID: 2070510009}
+    - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: inventoryImage
       value: 
       objectReference: {fileID: 1507327927}
@@ -438,6 +442,7 @@ MonoBehaviour:
   MaxBoredom: 100
   Width: 550
   Height: 40
+  FillColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   boredomBarRect: {fileID: 1093451226}
 --- !u!1001 &258577385
 PrefabInstance:
@@ -1721,7 +1726,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f149a860342754b58b059f523975b45d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2294,7 +2299,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: b93442dce1687411095a3d8b7e8bd9a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2692,11 +2697,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722671487074221575, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: interests.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6722671487074221575, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: 'interests.Array.data[0]'
-      value: astrology
+      value: literacy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722671487074221575, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
+      propertyPath: 'interests.Array.data[1]'
+      value: archology
       objectReference: {fileID: 0}
     - target: {fileID: 8527087554369794750, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: m_Name
@@ -11059,7 +11068,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f149a860342754b58b059f523975b45d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11671,7 +11680,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f3a895065650649ab8ac830ff745e8db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11799,7 +11808,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f3a895065650649ab8ac830ff745e8db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11984,7 +11993,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: b93442dce1687411095a3d8b7e8bd9a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12338,7 +12347,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: b93442dce1687411095a3d8b7e8bd9a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12526,7 +12535,7 @@ PrefabInstance:
     - target: {fileID: 7101751780355192190, guid: 654d61ba43fa94fc399fb1a5a20343f6, type: 3}
       propertyPath: exhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 91cd39711e7e34220ae51035dce6d3cd, type: 2}
+      objectReference: {fileID: 11400000, guid: f149a860342754b58b059f523975b45d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12668,6 +12677,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055188158}
   m_CullTransparentMesh: 1
+--- !u!114 &2070510009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1206385031890460258, guid: ba371c694fbd74605aed8b9f2ab7fb81, type: 3}
+  m_PrefabInstance: {fileID: 4035333179074473549}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
 --- !u!1001 &2079441525
 PrefabInstance:
   m_ObjectHideFlags: 0
