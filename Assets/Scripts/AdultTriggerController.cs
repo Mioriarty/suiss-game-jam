@@ -124,7 +124,7 @@ public class AdultTriggerController : MonoBehaviour
 
     private void PrintText5()
     {
-        textboxTextmanger.SetText("I have an apple crumb with me. Lets swap out the next book he find with it, by pressing space near it.");
+        textboxTextmanger.SetText("I have an apple crumb with me. Lets swap out the next book he finds with it, by pressing K near it.");
         inventoryUI.SetActive(true);
         Invoke("EnablePlayerControl", 4.0f);
     }
