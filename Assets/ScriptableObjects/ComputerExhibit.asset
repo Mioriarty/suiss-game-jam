@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: ComputerExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: 0}
-  exhibitName: New Exhibit
-  interest: 
+  exhibitName: Computer
+  interest: 'technology
+
+'
