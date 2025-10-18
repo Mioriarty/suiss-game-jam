@@ -162,7 +162,7 @@ public class AdultController : MonoBehaviour
             adultAnimator.SetBool("isBored", false);
 
             ExhibitController targetExhibit;
-            if (nextTargets.Count > 0)
+            if (nextTargets!= null && nextTargets.Count > 0)
             {
                 target = nextTargets[0];
                 nextTargets.RemoveAt(0);
