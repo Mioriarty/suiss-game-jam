@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator spriteAnimator;
+    public Animator cloudAnimator;
+    public SpriteRenderer directionRenderer;
     public float acceleration;
     public float breakDamping;
     public float normalDamping;
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        cloudAnimator.SetBool("isStunned", true);
+        directionRenderer.enabled = false;
         remainingStunTime = 0.5f;
         Vector3 collisionPoint = collision.contacts[0].point;
         Vector3 directionAway = (transform.position - collisionPoint).normalized;
@@ -78,6 +83,10 @@ public class PlayerController : MonoBehaviour
         if (remainingStunTime > 0)
         {
             remainingStunTime -= Time.deltaTime;
+            if(remainingStunTime <= 0) {
+                cloudAnimator.SetBool("isStunned", false);
+                directionRenderer.enabled = true;
+            }
             return;
         }
         float moveInput = Input.GetAxis("Vertical");
@@ -86,6 +95,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ||
             (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame))
         {
+            // Play animation
+            spriteAnimator.SetTrigger("Accelerate");
+
             // add less force if we are close to max speed
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect

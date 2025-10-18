@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ComputerExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: 8857992262350341199, guid: 85df7c69dde2fcd41963f775d8d6ad2b, type: 3}
-  exhibitName: Computer
+  exhibitName: computer
   interest: 'technology
 
 '

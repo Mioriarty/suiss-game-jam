@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BoneExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: -1867805607384674194, guid: bce13f22fe9e33646871239140c08e52, type: 3}
-  exhibitName: Bone
+  exhibitName: bone
   interest: archology

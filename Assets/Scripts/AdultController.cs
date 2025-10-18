@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AdultController : MonoBehaviour
 {
+    public Animator adultAnimator;
     public GameObject target;
     public String[] interests;
     public float speed = 1.0f;
@@ -38,15 +39,28 @@ public class AdultController : MonoBehaviour
             string spriteName = spriteRenderer.sprite.name;
             // split by underscore 
             string id = spriteName.Split('n')[1].Split(' ')[0];
-            
+
             int.TryParse(id, out int exhibitId);
-            Debug.Log("ID: " + exhibitId);
+
+            if (exhibitId == 11)
+            {
+                ColorUtility.TryParseHtmlString("#1eda02", out barColor);
+            }
+            else if (exhibitId == 21)
+            {
+                ColorUtility.TryParseHtmlString("#fc4e51", out barColor);
+            }
+            else if (exhibitId == 31)
+            {
+                ColorUtility.TryParseHtmlString("#614dfd", out barColor);
+            }
 
         }
         EnsureBoredomBar();
         if (boredomBarController != null)
         {
             boredomBarController.SetMaxBoredom(MaxBoredom);
+            boredomBarController.SetFillColor(barColor);
         }
     }
 
@@ -100,6 +114,10 @@ public class AdultController : MonoBehaviour
             Vector3 targetPosition = path[0];
             if (!isWaiting)
             {
+                if(targetPosition.x > transform.position.x)
+                    transform.localScale = new Vector3(1, 1, 1);
+                else if(targetPosition.x < transform.position.x)
+                    transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
             }
             
@@ -115,10 +133,12 @@ public class AdultController : MonoBehaviour
                 if (Array.Exists(interests, interest => interest == target.GetComponent<ExhibitController>().exhibit.Interest))
                 {
                     SetBoredom(-10f);
+                    adultAnimator.SetBool("isHappy", true);
                 }
                 else
                 {
                     SetBoredom(10f);
+                    adultAnimator.SetBool("isBored", true);
                 }
             }
         }
@@ -136,6 +156,10 @@ public class AdultController : MonoBehaviour
             }
             waitTimer = 0.0f;
             isWaiting = false;
+
+            // got back to walking state
+            adultAnimator.SetBool("isHappy", false);
+            adultAnimator.SetBool("isBored", false);
 
             ExhibitController targetExhibit;
             if (nextTargets.Count > 0)
