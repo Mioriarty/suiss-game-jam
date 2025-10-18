@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,9 +37,25 @@ public class ExhibitController : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("isExcited", true);
     }
-    
+
     public void Unexcite()
     {
         GetComponent<Animator>().SetBool("isExcited", false);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Excite();
+        }
+    }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Unexcite();
+        }
     }
 }
