@@ -31,4 +31,14 @@ public class ExhibitController : MonoBehaviour
         exhibit = newExhibit;
         Apply();
     }
+
+    public void Excite()
+    {
+        GetComponent<Animator>().SetBool("isExcited", true);
+    }
+    
+    public void Unexcite()
+    {
+        GetComponent<Animator>().SetBool("isExcited", false);
+    }
 }

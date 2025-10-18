@@ -124,6 +124,10 @@ public class AdultController : MonoBehaviour
             waitTimer = 0.0f;
             isWaiting = false;
 
+            // Unexcite the current target exhibit
+            if(target != null)
+                target.GetComponent<ExhibitController>()?.Unexcite();
+
 
             Debug.Log("Selecting new target for adult.");
             ExhibitController[] exhibits = FindObjectsByType<ExhibitController>(FindObjectsSortMode.None);
@@ -142,6 +146,9 @@ public class AdultController : MonoBehaviour
             // select a random exhibit
             ExhibitController targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = targetExhibit.gameObject;
+
+            // Excite the new target exhibit
+            targetExhibit.Excite();
 
             desiredObject.GetComponent<SpriteRenderer>().sprite = targetExhibit.exhibit.Image;
             Debug.Log("New target selected: " + target.transform.position);
