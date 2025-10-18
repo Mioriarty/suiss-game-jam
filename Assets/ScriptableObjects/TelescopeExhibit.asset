@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TelescopeExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: 0}
-  exhibitName: New Exhibit
-  interest: 
+  exhibitName: Telescope
+  interest: astronomie
