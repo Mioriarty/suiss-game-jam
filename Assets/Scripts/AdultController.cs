@@ -42,15 +42,15 @@ public class AdultController : MonoBehaviour
 
             if (exhibitId == 11)
             {
-                ColorUtility.TryParseHtmlString("#1EDA02", out barColor);
+                ColorUtility.TryParseHtmlString("#1eda02", out barColor);
             }
             else if (exhibitId == 21)
             {
-                ColorUtility.TryParseHtmlString("#FC4E51", out barColor);
+                ColorUtility.TryParseHtmlString("#fc4e51", out barColor);
             }
             else if (exhibitId == 31)
             {
-                ColorUtility.TryParseHtmlString("#614DFD", out barColor);
+                ColorUtility.TryParseHtmlString("#614dfd", out barColor);
             }
 
         }
@@ -58,6 +58,7 @@ public class AdultController : MonoBehaviour
         if (boredomBarController != null)
         {
             boredomBarController.SetMaxBoredom(MaxBoredom);
+            boredomBarController.SetFillColor(barColor);
         }
     }
 
