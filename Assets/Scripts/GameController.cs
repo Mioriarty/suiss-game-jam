@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameController : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        if (SceneManager.GetActiveScene().name.StartsWith("Level"))
+        {
+            levelNumber = (int) SceneManager.GetActiveScene().name[6];
+        }
     }
 
     void Update()

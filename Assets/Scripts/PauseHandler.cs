@@ -13,13 +13,13 @@ public class PauseHandler : MonoBehaviour
         }
     }
 
-    void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
-    void UnpauseGame()
+    public void UnpauseGame()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
