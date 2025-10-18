@@ -20,10 +20,16 @@ public class GameManager : MonoBehaviour
             EndLevelByTimeElapsed();
         }
     }
-    
+
     void EndLevelByTimeElapsed()
     {
         StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.TimeElapsed, Time.time);
+        loadManager.GetComponent<LoadController>().LoadScene("GameResultScreen");
+    }
+    
+    public void EndLevelByBoredom()
+    {
+        StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.Success, Time.time);
         loadManager.GetComponent<LoadController>().LoadScene("GameResultScreen");
     }
 }

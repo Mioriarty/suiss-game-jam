@@ -6,7 +6,19 @@ using UnityEngine.UI;
 public class BoredomBarController : MonoBehaviour
 {
     public float Boredom, MaxBoredom, Width, Height;
+
+    public Color FillColor = Color.yellow;
     [SerializeField] private RectTransform boredomBarRect;
+
+    public void SetFillColor(Color color)
+    {
+        FillColor = color;
+        Image img = boredomBarRect.GetComponent<Image>();
+        if (img != null)
+        {
+            img.color = FillColor;
+        }
+    }
 
     public void SetMaxBoredom(float max)
     {
