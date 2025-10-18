@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class ParentController : MonoBehaviour
+public class AdultController : MonoBehaviour
 {
     public GameObject target;
     public String[] interests;
@@ -60,7 +60,7 @@ public class ParentController : MonoBehaviour
             ExhibitController randomExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = randomExhibit.gameObject;
 
-            path = AStarManager.instance.GeneratePath(transform.position, target.transform.position, false);
+            path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
 
         }
     }
