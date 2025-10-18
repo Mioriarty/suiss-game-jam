@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
   image: {fileID: 7356940347486642805, guid: 99bbda5bad4960746939f8bcadbc41b6, type: 3}
   exhibitName: apple_crumbs
-  interest: trash
+  

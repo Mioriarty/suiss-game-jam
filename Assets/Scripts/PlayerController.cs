@@ -24,19 +24,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public Image inventoryImage;
     public Light2D globalLight;
+    public ParticleSystem ps;
     private float remainingStunTime = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ps = GetComponentInChildren<ParticleSystem>();
         updateInventoryUI();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         cloudAnimator.SetBool("isStunned", true);
-        directionRenderer.enabled = false;
+        directionRenderer.GetComponent<SpriteRenderer>().color = Color.gray;
         remainingStunTime = 0.5f;
         Vector3 collisionPoint = collision.contacts[0].point;
         Vector3 directionAway = (transform.position - collisionPoint).normalized;
@@ -85,7 +87,7 @@ public class PlayerController : MonoBehaviour
             remainingStunTime -= Time.deltaTime;
             if(remainingStunTime <= 0) {
                 cloudAnimator.SetBool("isStunned", false);
-                directionRenderer.enabled = true;
+                directionRenderer.GetComponent<SpriteRenderer>().color = Color.red;
             }
             return;
         }
@@ -102,6 +104,8 @@ public class PlayerController : MonoBehaviour
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect
             rb.AddForce(transform.up * (acceleration * accelerationFactor * speedFactor), ForceMode2D.Impulse);
+
+            ps.Play();
         }
 
         rb.linearDamping = normalDamping;

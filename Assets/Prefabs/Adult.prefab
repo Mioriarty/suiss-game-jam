@@ -169,7 +169,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3083636630504189760, guid: 8cd54e76dcee9e3438d07c50c2ad6b55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7398512507368620236
@@ -344,7 +344,8 @@ MonoBehaviour:
   adultAnimator: {fileID: 9111286680925989885}
   target: {fileID: 0}
   interests:
-  - astrology
+  - {fileID: 0}
+  cycleInterestingObjectsEvery: 2
   speed: 1
   safetyDistance: 1.5
   desiredObject: {fileID: 7100516018657294953}
@@ -352,6 +353,7 @@ MonoBehaviour:
   path: []
   MaxBoredom: 100
   Boredom: 0
+  nextTargets: []
   uiCanvas: {fileID: 0}
   boredomBarPrefab: {fileID: 4368568046140962106, guid: a0f593737ab634ac6aa513ee07697c83, type: 3}
   boredomBarContainer: {fileID: 0}
