@@ -60,7 +60,7 @@ public class ParentController : MonoBehaviour
             ExhibitController randomExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = randomExhibit.gameObject;
 
-            path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
+            path = AStarManager.instance.GeneratePath(transform.position, target.transform.position, false);
 
         }
     }
