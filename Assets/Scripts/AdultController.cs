@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 
@@ -22,7 +23,8 @@ public class AdultController : MonoBehaviour
 
     [SerializeField] private Canvas uiCanvas;                  
     [SerializeField] private BoredomBarController boredomBarPrefab;
-
+    [SerializeField] private RectTransform boredomBarContainer;
+    [SerializeField] private float boredomBarSpacing = 0.5f;
     [SerializeField] BoredomBarController boredomBarController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,32 +40,43 @@ public class AdultController : MonoBehaviour
     void EnsureBoredomBar()
     {
         if (uiCanvas == null)
-        {
             uiCanvas = FindFirstObjectByType<Canvas>();
-        }
+        if (uiCanvas == null || boredomBarPrefab == null)
+            return;
 
-        if (boredomBarController == null && boredomBarPrefab != null && uiCanvas != null)
+        // make sure container exists
+        if (boredomBarContainer == null)
         {
-            boredomBarController = Instantiate(boredomBarPrefab, uiCanvas.transform);
-
-            // position top center of uiCanvas
-            RectTransform canvasRect = uiCanvas.GetComponent<RectTransform>();
-
-            // if no other boredom bar exists, place it at the top center of the screen
-            if (FindObjectsByType<BoredomBarController>(FindObjectsSortMode.None).Length == 0)
-            {
-                RectTransform barRect = boredomBarController.GetComponent<RectTransform>();
-                barRect.anchoredPosition = new Vector2(0, canvasRect.sizeDelta.y / 2 - barRect.sizeDelta.y / 2);
-            } else {
-                // otherwise, stack it below the last boredom bar
-                BoredomBarController[] existingBars = FindObjectsByType<BoredomBarController>(FindObjectsSortMode.None);
-                int numBars = existingBars.Length;
-
-                // place 12 * numBars pixels below the top
-                RectTransform barRect = boredomBarController.GetComponent<RectTransform>();
-                barRect.anchoredPosition = new Vector2(0, canvasRect.sizeDelta.y / 2 - barRect.sizeDelta.y / 2 - (12 * numBars));
-            }
+            var found = uiCanvas.transform.Find("BoredomBarContainer");
+            if (found != null)
+                boredomBarContainer = found.GetComponent<RectTransform>();
         }
+        if (boredomBarContainer == null)
+        {
+            // offset container by some pixels from top
+            var go = new GameObject("BoredomBarContainer", typeof(RectTransform));
+            boredomBarContainer = go.GetComponent<RectTransform>();
+            boredomBarContainer.SetParent(uiCanvas.transform, false);
+            boredomBarContainer.anchorMin = new Vector2(0.5f, 1f);
+            boredomBarContainer.anchorMax = new Vector2(0.5f, 1f);
+            boredomBarContainer.pivot    = new Vector2(0.5f, 1f);
+            boredomBarContainer.anchoredPosition = new Vector2(0f, -2f);
+        }
+
+        // number of existing bars
+        int index = boredomBarContainer.childCount;
+
+        // create new bar
+        boredomBarController = Instantiate(boredomBarPrefab, boredomBarContainer);
+
+        // position bar in container
+        RectTransform barRect = boredomBarController.GetComponent<RectTransform>();
+        barRect.anchorMin = new Vector2(0.5f, 1f);
+        barRect.anchorMax = new Vector2(0.5f, 1f);
+        barRect.pivot     = new Vector2(0.5f, 1f);
+
+        float rowHeight = barRect.sizeDelta.y;
+        barRect.anchoredPosition = new Vector2(0f, -index * (rowHeight + boredomBarSpacing));
     }
 
     // Update is called once per frame
