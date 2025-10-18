@@ -11,12 +11,12 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed;
     public float maxSpeed;
     public float minSpeed;
-    public bool isStunned;
     public float pushBackForceOnStun = 0.5f;
 
     public Exhibit inventoryExhibit;
     private Rigidbody2D rb;
     public Image inventoryImage;
+    private float remainingStunTime = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,38 +25,12 @@ public class PlayerController : MonoBehaviour
         updateInventoryUI();
     }
 
-    void ResetColor()
-    {
-        GetComponent<SpriteRenderer>().color = Color.white;
-    }
-
-    void SetColor(Color color, float time)
-    {
-        GetComponent<SpriteRenderer>().color = color;
-        Invoke("ResetColor", time);
-    }
-
-    void UnstunPlayer()
-    {
-        isStunned = false;
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Adult"))
-        {
-            isStunned = true;
-            // set color to red
-
-
-            // add a force away from the collision point
-            Vector3 collisionPoint = collision.contacts[0].point;
-            Vector3 directionAway = (transform.position - collisionPoint).normalized;
-            rb.AddForce(directionAway * (pushBackForceOnStun * 5.0f), ForceMode2D.Impulse);
-
-            // after 2 seconds, unstun the player
-            Invoke("UnstunPlayer", 1.0f);
-        }
+        remainingStunTime = 0.5f;
+        Vector3 collisionPoint = collision.contacts[0].point;
+        Vector3 directionAway = (transform.position - collisionPoint).normalized;
+        rb.AddForce(directionAway * (pushBackForceOnStun * 5.0f), ForceMode2D.Impulse);
     }
 
     void updateInventoryUI()
@@ -74,12 +48,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isStunned)
+        if (remainingStunTime > 0)
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            remainingStunTime -= Time.deltaTime;
             return;
         }
-
         float moveInput = Input.GetAxis("Vertical");
         float turnInput = Input.GetAxis("Horizontal");
 
@@ -90,7 +63,6 @@ public class PlayerController : MonoBehaviour
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect
             rb.AddForce(transform.up * (acceleration * speedFactor), ForceMode2D.Impulse);
-            SetColor(Color.green, 0.5f);
         }
 
         rb.linearDamping = normalDamping;
