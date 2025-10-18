@@ -4,6 +4,7 @@ using UnityEngine.Animations;
 public class PlayerSpriteAnimator : MonoBehaviour
 {
     private Rigidbody2D parentRb;
+    private SpriteRenderer spriteRenderer;
 
     public float maxRotationAngle = 15f;
     public float maxSpeedForMaxRotation = 10f;
@@ -12,6 +13,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
     void Start()
     {
         parentRb = GetComponentInParent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,11 +26,11 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
         if(velocity.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            spriteRenderer.flipX = false;
         }
         else if(velocity.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            spriteRenderer.flipX = true;
         }
     }
 }
