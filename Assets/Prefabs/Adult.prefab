@@ -287,7 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   target: {fileID: 0}
-  interests: []
+  interests:
+  - astrology
   speed: 1
   safetyDistance: 1.5
   desiredObject: {fileID: 7100516018657294953}
@@ -297,6 +298,8 @@ MonoBehaviour:
   Boredom: 0
   uiCanvas: {fileID: 0}
   boredomBarPrefab: {fileID: 4368568046140962106, guid: a0f593737ab634ac6aa513ee07697c83, type: 3}
+  boredomBarContainer: {fileID: 0}
+  boredomBarSpacing: 2
   boredomBarController: {fileID: 0}
 --- !u!58 &-5550961915484834760
 CircleCollider2D:
