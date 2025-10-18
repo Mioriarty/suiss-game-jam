@@ -54,6 +54,14 @@ public class AdultController : MonoBehaviour
             {
                 RectTransform barRect = boredomBarController.GetComponent<RectTransform>();
                 barRect.anchoredPosition = new Vector2(0, canvasRect.sizeDelta.y / 2 - barRect.sizeDelta.y / 2);
+            } else {
+                // otherwise, stack it below the last boredom bar
+                BoredomBarController[] existingBars = FindObjectsByType<BoredomBarController>(FindObjectsSortMode.None);
+                int numBars = existingBars.Length;
+
+                // place 12 * numBars pixels below the top
+                RectTransform barRect = boredomBarController.GetComponent<RectTransform>();
+                barRect.anchoredPosition = new Vector2(0, canvasRect.sizeDelta.y / 2 - barRect.sizeDelta.y / 2 - (12 * numBars));
             }
         }
     }
