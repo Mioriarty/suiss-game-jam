@@ -37,9 +37,21 @@ public class AdultController : MonoBehaviour
             string spriteName = spriteRenderer.sprite.name;
             // split by underscore 
             string id = spriteName.Split('n')[1].Split(' ')[0];
-            
+
             int.TryParse(id, out int exhibitId);
-            Debug.Log("ID: " + exhibitId);
+
+            if (exhibitId == 11)
+            {
+                ColorUtility.TryParseHtmlString("#1EDA02", out barColor);
+            }
+            else if (exhibitId == 21)
+            {
+                ColorUtility.TryParseHtmlString("#FC4E51", out barColor);
+            }
+            else if (exhibitId == 31)
+            {
+                ColorUtility.TryParseHtmlString("#614DFD", out barColor);
+            }
 
         }
         EnsureBoredomBar();
