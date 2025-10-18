@@ -36,6 +36,6 @@ public class GameEndScreenManager : MonoBehaviour
     void Success()
     {
         gameResultAnnounce.SetText("You succeeded!");
-        gameDesc.SetText($"Your {res.Level}-th birthday turned into a fun minigame against your parents. And you only had to spend {res.EndTime} hours at the museum! ");
+        gameDesc.SetText($"Your {res.Level}-th birthday turned into a fun minigame against your parents. And you only had to spend {(int) res.EndTime} hours at the museum! ");
     }
 }
