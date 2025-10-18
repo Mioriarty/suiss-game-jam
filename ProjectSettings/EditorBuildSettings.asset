@@ -12,17 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroSequence.unity
     guid: 579c63676c05c794c8d1f29aaeaa8a29
   - enabled: 1
-    path: Assets/Scenes/GameResultScene.unity
-    guid: 3296674e2c1d8f847947254db9890cbc
-  - enabled: 1
     path: Assets/Scenes/Level 0.unity
     guid: 3f8fdd46deada3bc08ffccc12bd6c67c
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
-    guid: 9deb8fefcfb05a243873e040226a3073
+    guid: 9f40359d502c84f76b87493804ea214a
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 06a2412a96978491391fc8b471afe20f
+  - enabled: 1
+    path: Assets/Scenes/GameResultScene.unity
+    guid: 3296674e2c1d8f847947254db9890cbc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
