@@ -105,14 +105,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499be87b10720450a95879fc28e28bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  acceleration: 2
-  breakDamping: 3
-  normalDamping: 0.1
+  acceleration: 10
+  breakDamping: 2
+  normalDamping: 1
   speedFactor: 1
   turnSpeed: 200
-  maxSpeed: 10
+  maxSpeed: 30
   minSpeed: 0.5
+  isStunned: 0
+  pushBackForceOnStun: 0.5
   inventoryExhibit: {fileID: 0}
+  inventoryImage: {fileID: 0}
 --- !u!50 &6093753290981107761
 Rigidbody2D:
   serializedVersion: 5
