@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
@@ -10,10 +12,15 @@ public class AdultTriggerController : MonoBehaviour
     public GameObject textBox;
     public GameObject inventoryUI;
     public GameObject directionIndicator;
+    public Collider2D firstExhibit;
     public TextboxTextmanager textboxTextmanger;
+
+    public Exhibit secondInterestExhibit;
 
     private bool checkIfSwapped = false;
     private bool checkForAdultArrival = false;
+    private bool checkForAdultArrival2 = false;
+    private bool checkForAdultDeparture2 = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
         GetComponent<Collider2D>().enabled = false;
@@ -44,15 +51,52 @@ public class AdultTriggerController : MonoBehaviour
                 checkForAdultArrival = true;
             }
         }
-        
-        if(checkForAdultArrival)
+
+        if (checkForAdultArrival)
         {
-            if(adult.GetComponent<AdultController>().waitTimer > 0.2f)
+            if (adult.GetComponent<AdultController>().waitTimer > 0.2f)
             {
                 textboxTextmanger.SetText("Onto the next one. Pick up something else to swap it with the next book.");
                 checkForAdultArrival = false;
+                Invoke("EnableCheckForAdultArrival2", 6.0f);
             }
         }
+
+        if (checkForAdultArrival2)
+        {
+            if (adult.GetComponent<AdultController>().waitTimer > 0.2f)
+            {
+                checkForAdultArrival2 = false;
+                checkForAdultDeparture2 = true;
+            }
+        }
+
+        if (checkForAdultDeparture2)
+        {
+            if (adult.GetComponent<AdultController>().waitTimer < 0.1f)
+            {
+                adult.GetComponent<AdultController>().speed = 0.0f;
+                adult.GetComponent<AdultController>().interests = new Exhibit[]
+                {
+                    adult.GetComponent<AdultController>().interests[0],
+                    secondInterestExhibit
+                };
+               
+                // fix player position in place
+                player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+                player.GetComponent<PlayerController>().enabled = false;
+                directionIndicator.SetActive(false);
+
+                textboxTextmanger.SetText("Oh no, he developed a second interest. Bones... WHHYYYY????");
+                Invoke("PrintText11", 6.0f);
+                checkForAdultDeparture2 = false;
+            }
+        }
+    }
+    
+    private void EnableCheckForAdultArrival2()
+    {
+        checkForAdultArrival2 = true;
     }
 
     private void ProlongInspectionTime()
@@ -85,10 +129,31 @@ public class AdultTriggerController : MonoBehaviour
         Invoke("EnablePlayerControl", 4.0f);
     }
 
+    private void PrintText11()
+    {
+        textboxTextmanger.SetText("So now, I will have to take care of both.");
+        Invoke("PrintText12", 4.0f);
+    }
+
+    private void PrintText12()
+    {
+        textboxTextmanger.SetText("Bore him until boredom bar above is full to finish the level");
+        Invoke("StartEndGame", 6.0f);
+    }
+
     private void EnablePlayerControl()
     {
         player.GetComponent<PlayerController>().enabled = true;
         directionIndicator.SetActive(true);
         checkIfSwapped = true;
+    }
+
+    private void StartEndGame()
+    {
+        textBox.SetActive(false);
+        adult.GetComponent<AdultController>().speed = 0.7f;
+        player.GetComponent<PlayerController>().enabled = true;
+        directionIndicator.SetActive(true);
+        firstExhibit.enabled = true;
     }
 }
