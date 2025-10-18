@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6093753290981107761}
   - component: {fileID: 2321996046699707356}
   - component: {fileID: 2637587922084222431}
-  - component: {fileID: 7382375998873773237}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -212,36 +211,7 @@ MonoBehaviour:
   maxVignetteIntensity: 0.05
   minSaturation: -30
   maxSaturation: 10
-  minCameraSize: 10
-  maxCameraSize: 12
---- !u!114 &7382375998873773237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619631095638244411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bf2e9b5ab67c481ba6398b99163ce3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpeedEffectsController
-  minSpeedCaptured: 15
-  maxSpeedCaptured: 25
-  maxDecayPercentage: 0.8
-  maxIncreasePercentage: 2
-  lastRatio: 0
-  volume: {fileID: 0}
-  mainCamera: {fileID: 0}
-  minChromaticAberration: 0
-  maxChromaticAberration: 0.5
-  minBloomIntensity: 0
-  maxBloomIntensity: 1
-  minVignetteIntensity: 0.45
-  maxVignetteIntensity: 0.35
-  minSaturation: -30
-  maxSaturation: 10
-  minCameraSize: 10
+  minCameraSize: 11
   maxCameraSize: 12
 --- !u!1 &3141932213556337330
 GameObject:
