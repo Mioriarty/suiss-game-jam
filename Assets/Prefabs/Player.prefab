@@ -518,7 +518,6 @@ GameObject:
   - component: {fileID: 2225530815993250767}
   - component: {fileID: 8416453376141277853}
   - component: {fileID: 5909686554334619112}
-  - component: {fileID: 2353815488391509357}
   m_Layer: 13
   m_Name: Particle System
   m_TagString: Untagged
@@ -535,7 +534,7 @@ Transform:
   m_GameObject: {fileID: 6489321281873789494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.01, y: -14, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -614,7 +613,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -5402,18 +5401,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!210 &2353815488391509357
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6489321281873789494}
-  m_Enabled: 1
-  m_SortingLayerID: -1281492469
-  m_SortingLayer: 1
-  m_SortingOrder: 2
-  m_SortAtRoot: 0
 --- !u!1 &7912036317267406333
 GameObject:
   m_ObjectHideFlags: 0
