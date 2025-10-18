@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -13,10 +14,14 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float minSpeed;
     public float pushBackForceOnStun = 0.5f;
+    public float rocketFactor = 1.3f;
+    public float stoneEffect = 0.5f;
+    public float helmetIntensity = 0.005f;
 
     public Exhibit inventoryExhibit;
     private Rigidbody2D rb;
     public Image inventoryImage;
+    public Light2D globalLight;
     private float remainingStunTime = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +54,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float accelerationFactor = 1.0f;
+        if (inventoryExhibit != null)
+        {
+            // check if the exhibit is a stone or rocket
+            if (inventoryExhibit.ExhibitName == "stone")
+            {
+                accelerationFactor = stoneEffect;
+            }
+            else if (inventoryExhibit.ExhibitName == "rocket")
+            {
+                accelerationFactor = rocketFactor;
+            }
+            if (inventoryExhibit.ExhibitName == "antique_helmet")
+            {
+                globalLight.intensity = helmetIntensity;
+            }
+            else
+            {
+                globalLight.intensity = 1.0f;
+            }
+        }
+
         if (remainingStunTime > 0)
         {
             remainingStunTime -= Time.deltaTime;
@@ -66,7 +93,7 @@ public class PlayerController : MonoBehaviour
             // add less force if we are close to max speed
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect
-            rb.AddForce(transform.up * (acceleration * speedFactor), ForceMode2D.Impulse);
+            rb.AddForce(transform.up * (acceleration * accelerationFactor * speedFactor), ForceMode2D.Impulse);
         }
 
         rb.linearDamping = normalDamping;
