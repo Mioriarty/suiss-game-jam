@@ -85,7 +85,6 @@ public class AdultController : MonoBehaviour
             boredomBarController.SetMaxBoredom(MaxBoredom);
             boredomBarController.SetFillColor(barColor);
         }
-        SetBoredom(100f);
     }
 
     bool IsInterestedIn(Exhibit exhibit)

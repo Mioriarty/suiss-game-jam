@@ -26,13 +26,13 @@ public class GameController : MonoBehaviour
     void EndLevelByTimeElapsed()
     {
         StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.TimeElapsed, Time.time);
-        loadController.LoadScene("GameResultScreen");
+        loadController.LoadScene("GameResultScene");
     }
     
     public void EndLevelByBoredom()
     {
         StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.Success, Time.time);
-        loadController.LoadScene("GameResultScreen");
+        loadController.LoadScene("GameResultScene");
     }
     
     public void AdultBecameBored(AdultController adult)
