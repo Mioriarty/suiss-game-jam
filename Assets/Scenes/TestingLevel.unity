@@ -614,7 +614,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
-  drawGizmos: 1
+  drawGizmos: 0
 --- !u!114 &554479887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!1 &1507327926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,6 +1786,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4929518560081958258, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929518560081958258, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929518560081958258, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.543718
       objectReference: {fileID: 0}
@@ -1856,6 +1864,14 @@ PrefabInstance:
     - target: {fileID: 8527087554369794750, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: m_TagString
       value: Adult
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868915572746203687, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5240539818688119814, guid: e7af1a928d90cf64b99f34f7b74c5b99, type: 3}
+    - target: {fileID: 8868915572746203687, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
