@@ -23,6 +23,8 @@ public class AdultController : MonoBehaviour
 
     public float MaxBoredom, Boredom;
     public List<GameObject> nextTargets;
+    private GameController _gameController;
+    private bool boredToSurrender = false;
 
     [SerializeField] private Canvas uiCanvas;                  
     [SerializeField] private BoredomBarController boredomBarPrefab;
@@ -34,6 +36,10 @@ public class AdultController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _gameController = FindFirstObjectByType<GameController>();
+        Debug.Log(_gameController);
+        Debug.Log(_gameController.isLevel);
+        _gameController.RegisterAdult(this);
         desiredObjectRenderer = desiredObject.GetComponent<SpriteRenderer>();
         CircleInterestingObject();
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -79,6 +85,7 @@ public class AdultController : MonoBehaviour
             boredomBarController.SetMaxBoredom(MaxBoredom);
             boredomBarController.SetFillColor(barColor);
         }
+        SetBoredom(100f);
     }
 
     bool IsInterestedIn(Exhibit exhibit)
@@ -136,6 +143,8 @@ public class AdultController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (boredToSurrender)
+            return;
         if (target != null && path != null && path.Count > 0)
         {
             Vector3 targetPosition = path[0];
@@ -261,6 +270,11 @@ public class AdultController : MonoBehaviour
         Boredom += boredomChange;
         Boredom = Mathf.Clamp(Boredom, 0, MaxBoredom);
         boredomBarController.SetBoredom(Boredom);
+        if (Boredom >= MaxBoredom)
+        {
+            boredToSurrender = true;
+            _gameController.AdultBecameBored(this);
+        }
     }
 
     private void OnDestroy()
