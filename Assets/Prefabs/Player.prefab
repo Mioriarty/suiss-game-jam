@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   acceleration: 2
   breakDamping: 3
-  normalDamping: 0.1
+  normalDamping: 0.5
   speedFactor: 1
   turnSpeed: 200
   maxSpeed: 10
