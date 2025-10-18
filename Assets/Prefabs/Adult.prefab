@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -5240539818688119814, guid: e7af1a928d90cf64b99f34f7b74c5b99, type: 3}
   m_Color: {r: 0, g: 1, b: 0.9148698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,4 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   target: {fileID: 0}
-  speed: 0.5
+  interests: []
+  speed: 1
+  safetyDistance: 1.5
+  waitTimeAtExhibit: 2
+  path: []
+  MaxBoredom: 100
+  Boredom: 0
+  boredomBarController: {fileID: 0}
