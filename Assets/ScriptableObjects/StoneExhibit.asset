@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: StoneExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 0}
+  image: {fileID: -3014830360997320727, guid: afdc744c81f00274a9bb874885346483, type: 3}
   exhibitName: stone
   interest: geology

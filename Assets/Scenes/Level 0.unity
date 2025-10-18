@@ -220,13 +220,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
+      propertyPath: globalLight
+      value: 
+      objectReference: {fileID: 2136427092}
+    - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: inventoryImage
       value: 
       objectReference: {fileID: 1507327927}
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: inventoryExhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 469a6c53983b10d98a656d90d93d6855, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e3f1715da3d14241b59f36d0b9779ef, type: 2}
     - target: {fileID: 1619631095638244411, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: m_Name
       value: Player
@@ -18946,6 +18950,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3419864954113964075, guid: ba371c694fbd74605aed8b9f2ab7fb81, type: 3}
   m_PrefabInstance: {fileID: 1272482158}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2136427092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1206385031890460258, guid: ba371c694fbd74605aed8b9f2ab7fb81, type: 3}
+  m_PrefabInstance: {fileID: 1272482158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

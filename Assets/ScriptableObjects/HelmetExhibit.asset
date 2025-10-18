@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b5fd110a9f4ef1bf6a66d014d232a, type: 3}
   m_Name: HelmetExhibit
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  image: {fileID: 0}
+  image: {fileID: 975538643929564780, guid: 57baab8354998a449a4291d9e7985d49, type: 3}
   exhibitName: antique_helmet
   interest: history
