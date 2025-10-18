@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: inventoryExhibit
       value: 
-      objectReference: {fileID: 11400000, guid: 7b072e2570cba43058ca56d9ea48e1f1, type: 2}
+      objectReference: {fileID: 11400000, guid: 7e3f1715da3d14241b59f36d0b9779ef, type: 2}
     - target: {fileID: 1619631095638244411, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2701,12 +2701,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6722671487074221575, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: 'interests.Array.data[0]'
-      value: literacy
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 11400000, guid: b93442dce1687411095a3d8b7e8bd9a9, type: 2}
     - target: {fileID: 6722671487074221575, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: 'interests.Array.data[1]'
-      value: archology
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 11400000, guid: f3a895065650649ab8ac830ff745e8db, type: 2}
     - target: {fileID: 8527087554369794750, guid: 278a7ca1eb03f4d79bec9ad12c376207, type: 3}
       propertyPath: m_Name
       value: Adult
