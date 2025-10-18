@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 
@@ -19,21 +20,70 @@ public class AdultController : MonoBehaviour
     public List<Vector3> path;
 
     public float MaxBoredom, Boredom;
+
+    [SerializeField] private Canvas uiCanvas;                  
+    [SerializeField] private BoredomBarController boredomBarPrefab;
+    [SerializeField] private RectTransform boredomBarContainer;
+    [SerializeField] private float boredomBarSpacing = 0.5f;
     [SerializeField] BoredomBarController boredomBarController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        boredomBarController.SetMaxBoredom(MaxBoredom);
+        EnsureBoredomBar();
+        if (boredomBarController != null)
+        {
+            boredomBarController.SetMaxBoredom(MaxBoredom);
+        }
+    }
+
+    void EnsureBoredomBar()
+    {
+        if (uiCanvas == null)
+            uiCanvas = FindFirstObjectByType<Canvas>();
+        if (uiCanvas == null || boredomBarPrefab == null)
+            return;
+
+        // make sure container exists
+        if (boredomBarContainer == null)
+        {
+            var found = uiCanvas.transform.Find("BoredomBarContainer");
+            if (found != null)
+                boredomBarContainer = found.GetComponent<RectTransform>();
+        }
+        if (boredomBarContainer == null)
+        {
+            // offset container by some pixels from top
+            var go = new GameObject("BoredomBarContainer", typeof(RectTransform));
+            boredomBarContainer = go.GetComponent<RectTransform>();
+            boredomBarContainer.SetParent(uiCanvas.transform, false);
+            boredomBarContainer.anchorMin = new Vector2(0.5f, 1f);
+            boredomBarContainer.anchorMax = new Vector2(0.5f, 1f);
+            boredomBarContainer.pivot    = new Vector2(0.5f, 1f);
+            boredomBarContainer.anchoredPosition = new Vector2(0f, -2f);
+        }
+
+        // number of existing bars
+        int index = boredomBarContainer.childCount;
+
+        // create new bar
+        boredomBarController = Instantiate(boredomBarPrefab, boredomBarContainer);
+
+        // position bar in container
+        RectTransform barRect = boredomBarController.GetComponent<RectTransform>();
+        barRect.anchorMin = new Vector2(0.5f, 1f);
+        barRect.anchorMax = new Vector2(0.5f, 1f);
+        barRect.pivot     = new Vector2(0.5f, 1f);
+
+        float rowHeight = barRect.sizeDelta.y;
+        barRect.anchoredPosition = new Vector2(0f, -index * (rowHeight + boredomBarSpacing));
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Target: " + (target != null ? target.GetComponent<ExhibitController>().exhibit.Interest : "None") + "\n Distance to Target: " + (target != null ? Vector3.Distance(transform.position, target.transform.position).ToString() : "N/A"));
         if (target != null && path != null && path.Count > 0)
         {
-            Debug.Log("Moving towards target exhibit: " + target.GetComponent<ExhibitController>().exhibit.Interest);
             Vector3 targetPosition = path[0];
             if (!isWaiting)
             {
@@ -46,18 +96,15 @@ public class AdultController : MonoBehaviour
                 path.RemoveAt(0);
             }
 
-            if (Vector3.Distance(transform.position, target.transform.position) < safetyDistance)
+            if (Vector3.Distance(transform.position, target.transform.position) < safetyDistance && !reachedTarget)
             {
-                Debug.Log("Reached target exhibit: " + target.GetComponent<ExhibitController>().exhibit.Interest);
                 reachedTarget = true;
                 if (Array.Exists(interests, interest => interest == target.GetComponent<ExhibitController>().exhibit.Interest))
                 {
-                    Debug.Log("Target is of interest.");
                     SetBoredom(-10f);
                 }
                 else
                 {
-                    Debug.Log("Target is not of interest.");
                     SetBoredom(10f);
                 }
             }
@@ -90,13 +137,15 @@ public class AdultController : MonoBehaviour
                 exhibits = Array.FindAll(exhibits, exhibit => exhibit.gameObject != target);
             }
 
-            
+            Debug.Log("Found " + exhibits.Length + " exhibits of interest.");
 
             // select a random exhibit
             ExhibitController targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = targetExhibit.gameObject;
 
             desiredObject.GetComponent<SpriteRenderer>().sprite = targetExhibit.exhibit.Image;
+            Debug.Log("New target selected: " + target.transform.position);
+            Debug.Log("Current position: " + transform.position);
             path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
             reachedTarget = false;
         }
@@ -125,5 +174,14 @@ public class AdultController : MonoBehaviour
         Boredom += boredomChange;
         Boredom = Mathf.Clamp(Boredom, 0, MaxBoredom);
         boredomBarController.SetBoredom(Boredom);
+    }
+
+    private void OnDestroy()
+    {
+        // Eigene UI-Bar aufräumen, wenn dieses Adult zerstört wird
+        if (boredomBarController != null)
+        {
+            Destroy(boredomBarController.gameObject);
+        }
     }
 }
