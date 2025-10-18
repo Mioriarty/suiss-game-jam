@@ -7,7 +7,7 @@ public class ReanbleParentTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         GetComponent<Collider2D>().enabled = false;
-        adultController.waitTimeAtExhibit = 4.0f;
+        adultController.waitTimeAtExhibit = 5.5f;
     }
 
 }
