@@ -8,6 +8,7 @@ public class AdultController : MonoBehaviour
     public GameObject target;
     public Exhibit[] interests;
     private int currentInterestIndex = 0;
+    public float cycleInterestingObjectsEvery; // seconds
     public float speed = 1.0f;
     public float safetyDistance = 1.0f;
     public GameObject desiredObject;
@@ -214,7 +215,7 @@ public class AdultController : MonoBehaviour
             return;
         desiredObjectRenderer.sprite = this.interests[currentInterestIndex].Image;
         currentInterestIndex = (currentInterestIndex + 1) % interests.Length;
-        Invoke("CircleInterestingObject", 1.0f);
+        Invoke("CircleInterestingObject", cycleInterestingObjectsEvery);
     }
 
     private void OnDrawGizmos()
