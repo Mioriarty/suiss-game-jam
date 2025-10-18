@@ -187,6 +187,12 @@ public class AdultController : MonoBehaviour
                 Debug.Log("Found " + exhibits.Length + " exhibits of interest.");
 
                 // select a random exhibit
+
+                if (exhibits.Length == 0)
+                {
+                    Debug.LogWarning("No exhibits found for adult's interests.");
+                    return;
+                }
                 targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
                 target = targetExhibit.gameObject;
             }
