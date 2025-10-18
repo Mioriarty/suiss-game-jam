@@ -82,6 +82,14 @@ public class AdultController : MonoBehaviour
             // filter exhibits by interests
             exhibits = Array.FindAll(exhibits, exhibit => Array.Exists(interests, interest => interest == exhibit.exhibit.Interest));
 
+            // filter out current target
+            if (target != null)
+            {
+                exhibits = Array.FindAll(exhibits, exhibit => exhibit.gameObject != target);
+            }
+
+            
+
             // select a random exhibit
             ExhibitController randomExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
             target = randomExhibit.gameObject;
