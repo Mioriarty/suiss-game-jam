@@ -6,6 +6,10 @@ public class CameraController : MonoBehaviour
     public GameObject player;
     public float maxX;
     public float maxY;
+    private Vector3 smoothPos;
+    private Vector3 newPos;
+    private float smoothSpeed = .05f;
+
     void Start()
     {
         transform.position = player.transform.position;
@@ -13,8 +17,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // TODO: Interpolate
-        Vector3 newPos = player.transform.position;
+        newPos = player.transform.position;
 
         // Clamp to world border
         newPos.x = Math.Min(maxX, newPos.x);
@@ -23,6 +26,13 @@ public class CameraController : MonoBehaviour
         newPos.y = Math.Max(-maxY, newPos.y);
         newPos.z = -10;
 
-        transform.position = newPos;
+        // transform.position = newPos;
+    }
+
+    void LateUpdate()
+    {
+        // Interpolate
+        smoothPos = Vector3.Lerp(transform.position, newPos, smoothSpeed);
+        transform.position = smoothPos;
     }
 }
