@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468456561009170366}
   - component: {fileID: 8395377137586691669}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: LevelCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

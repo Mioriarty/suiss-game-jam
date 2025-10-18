@@ -11,6 +11,10 @@ public class AStarNode : MonoBehaviour
 
     public float FScore => gScore + hScore;
 
+    public bool onlyTarget = false;
+
+    public AStarNode[] NonTargetConnections => System.Array.FindAll(connections, conn => !conn.onlyTarget);
+
 
     private void OnDrawGizmos()
     {
@@ -23,6 +27,12 @@ public class AStarNode : MonoBehaviour
                 {
                     Gizmos.DrawLine(transform.position, connection.transform.position);
                 }
+            }
+
+            if (onlyTarget)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(transform.position, 0.5f);
             }
         }
     }

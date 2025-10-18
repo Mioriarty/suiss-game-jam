@@ -12,6 +12,7 @@ public class AStarNodeGridCreator : MonoBehaviour
     [SerializeField] private bool allowDiagonalConnections = true;
 
     [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private LayerMask onlyTargetLayer;
     [SerializeField] private bool drawGizmos = true;
 
     void OnEnable()
@@ -39,9 +40,13 @@ public class AStarNodeGridCreator : MonoBehaviour
                 if (hitCollider != null)
                     continue; // Skip this position if occupied
 
+                hitCollider = Physics2D.OverlapCircle(nodePosition, nodeSpacing / 2, onlyTargetLayer);
+                bool isOnlyTarget = hitCollider != null;
+
                 GameObject newNode = Instantiate(node, nodePosition, Quaternion.identity, transform);
                 newNode.transform.parent = transform;
                 grid[x][y] = newNode.GetComponent<AStarNode>();
+                grid[x][y].onlyTarget = isOnlyTarget;
             }
         }
 
@@ -102,10 +107,17 @@ public class AStarNodeGridCreator : MonoBehaviour
                 );
 
                 // Draw in red if occupied
-                Collider2D hitCollider = Physics2D.OverlapCircle(nodePosition, nodeSpacing / 2, obstacleLayer);
+                Collider2D hitCollider = Physics2D.OverlapCircle(nodePosition, nodeSpacing / 2, obstacleLayer | onlyTargetLayer);
                 if (hitCollider != null)
                 {
-                    Gizmos.color = Color.red;
+                    if((onlyTargetLayer.value & (1 << hitCollider.gameObject.layer)) > 0)
+                    {
+                        Gizmos.color = Color.blue;
+                    }
+                    else
+                    {
+                        Gizmos.color = Color.red;
+                    }
                 }
                 else
                 {

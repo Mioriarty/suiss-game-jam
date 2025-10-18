@@ -16,13 +16,16 @@ public class AStarManager : MonoBehaviour
     public List<Vector3> GeneratePath(Vector3 start, Vector3 end, bool tryConnectedStartNodes = true)
     {
         AStarNode orignialStartNode = FindNearestAStarNode(start);
-        AStarNode endNode = FindNearestAStarNode(end);
+        AStarNode endNode = FindNearestAStarNode(end, true);
+
+        bool endNodeIsOnlyTarget = endNode.onlyTarget;
+        endNode.onlyTarget = false;
 
         AStarNode[] startNodes;
         if (tryConnectedStartNodes)
         {
-            List<AStarNode> tempStartNodes = new List<AStarNode> { orignialStartNode };
-            tempStartNodes.AddRange(orignialStartNode.connections);
+            List<AStarNode> tempStartNodes = new() { orignialStartNode };
+            tempStartNodes.AddRange(orignialStartNode.NonTargetConnections);
             startNodes = tempStartNodes.ToArray();
         }
         else
@@ -51,7 +54,10 @@ public class AStarManager : MonoBehaviour
             }
         }
 
+        endNode.onlyTarget = endNodeIsOnlyTarget;
+
         path.Add(end);
+
 
         return path;
     }
@@ -100,7 +106,7 @@ public class AStarManager : MonoBehaviour
                 return path;
             }
 
-            foreach(AStarNode connectedAStarNode in currentAStarNode.connections)
+            foreach(AStarNode connectedAStarNode in currentAStarNode.NonTargetConnections)
             {
                 float heldGScore = currentAStarNode.gScore + Vector2.Distance(currentAStarNode.transform.position, connectedAStarNode.transform.position);
 
@@ -121,13 +127,16 @@ public class AStarManager : MonoBehaviour
         return null;
     }
 
-    public AStarNode FindNearestAStarNode(Vector2 pos)
+    public AStarNode FindNearestAStarNode(Vector2 pos, bool includeOnlyTarget = false)
     {
         AStarNode foundAStarNode = null;
         float minDistance = float.MaxValue;
 
         foreach(AStarNode AStarNode in FindObjectsByType<AStarNode>(FindObjectsSortMode.None))
         {
+            if (includeOnlyTarget && !AStarNode.onlyTarget)
+                continue;
+                
             float currentDistance = Vector2.Distance(pos, AStarNode.transform.position);
 
             if(currentDistance < minDistance)
@@ -140,13 +149,15 @@ public class AStarManager : MonoBehaviour
         return foundAStarNode;
     }
 
-    public AStarNode FindFurthestAStarNode(Vector2 pos)
+    public AStarNode FindFurthestAStarNode(Vector2 pos, bool includeOnlyTarget = false)
     {
         AStarNode foundAStarNode = null;
         float maxDistance = default;
 
         foreach (AStarNode AStarNode in FindObjectsByType<AStarNode>(FindObjectsSortMode.None))
         {
+            if(includeOnlyTarget && !AStarNode.onlyTarget)
+                continue;
             float currentDistance = Vector2.Distance(pos, AStarNode.transform.position);
             if(currentDistance > maxDistance)
             {
