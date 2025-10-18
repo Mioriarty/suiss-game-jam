@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 using UnityEngine;
 
 public class AdultController : MonoBehaviour
 {
     public Animator adultAnimator;
     public GameObject target;
-    public String[] interests;
+    public Exhibit[] interests;
+    private int currentInterestIndex = 0;
     public float speed = 1.0f;
     public float safetyDistance = 1.0f;
     public GameObject desiredObject;
+    private SpriteRenderer desiredObjectRenderer;
     
     private bool reachedTarget = false;
     private bool isWaiting = false;
@@ -33,6 +33,8 @@ public class AdultController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        desiredObjectRenderer = desiredObject.GetComponent<SpriteRenderer>();
+        CircleInterestingObject();
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         // find the sprite renderer named "AdultSprite"
         SpriteRenderer spriteRenderer = null;
@@ -78,6 +80,16 @@ public class AdultController : MonoBehaviour
         }
     }
 
+    bool IsInterestedIn(Exhibit exhibit)
+    {
+        foreach (var interest in interests)
+        {
+            if (interest == exhibit)
+                return true;
+        }
+        return false;
+    }
+    
     void EnsureBoredomBar()
     {
         if (uiCanvas == null)
@@ -144,7 +156,7 @@ public class AdultController : MonoBehaviour
             if (Vector3.Distance(transform.position, target.transform.position) < safetyDistance && !reachedTarget)
             {
                 reachedTarget = true;
-                if (Array.Exists(interests, interest => interest == target.GetComponent<ExhibitController>().exhibit.Interest))
+                if (IsInterestedIn (target.GetComponent<ExhibitController>().exhibit))
                 {
                     SetBoredom(-10f);
                     adultAnimator.SetBool("isHappy", true);
@@ -156,8 +168,6 @@ public class AdultController : MonoBehaviour
                 }
             }
         }
-        
-
 
         if (target == null || reachedTarget)
         {
@@ -190,7 +200,7 @@ public class AdultController : MonoBehaviour
 
                 // filter exhibits by interests
                 exhibits = Array.FindAll(exhibits,
-                    exhibit => Array.Exists(interests, interest => interest == exhibit.exhibit.Interest));
+                    exhibit => IsInterestedIn(exhibit.exhibit));
 
                 // filter out current target
                 if (target != null)
@@ -210,12 +220,21 @@ public class AdultController : MonoBehaviour
                 targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
                 target = targetExhibit.gameObject;
             }
-            desiredObject.GetComponent<SpriteRenderer>().sprite = targetExhibit.exhibit.Image;
+            
             Debug.Log("New target selected: " + target.transform.position);
             Debug.Log("Current position: " + transform.position);
             path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
             reachedTarget = false;
         }
+    }
+
+    void CircleInterestingObject()
+    {
+        if (interests.Length == 0)
+            return;
+        desiredObjectRenderer.sprite = this.interests[currentInterestIndex].Image;
+        currentInterestIndex = (currentInterestIndex + 1) % interests.Length;
+        Invoke("CircleInterestingObject", 1.0f);
     }
 
     private void OnDrawGizmos()
