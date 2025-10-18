@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AdultController : MonoBehaviour
 {
+    public Animator adultAnimator;
     public GameObject target;
     public String[] interests;
     public float speed = 1.0f;
@@ -87,6 +88,10 @@ public class AdultController : MonoBehaviour
             Vector3 targetPosition = path[0];
             if (!isWaiting)
             {
+                if(targetPosition.x > transform.position.x)
+                    transform.localScale = new Vector3(1, 1, 1);
+                else if(targetPosition.x < transform.position.x)
+                    transform.localScale = new Vector3(-1, 1, 1);
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
             }
             
@@ -102,10 +107,12 @@ public class AdultController : MonoBehaviour
                 if (Array.Exists(interests, interest => interest == target.GetComponent<ExhibitController>().exhibit.Interest))
                 {
                     SetBoredom(-10f);
+                    adultAnimator.SetBool("isHappy", true);
                 }
                 else
                 {
                     SetBoredom(10f);
+                    adultAnimator.SetBool("isBored", true);
                 }
             }
         }
@@ -123,6 +130,10 @@ public class AdultController : MonoBehaviour
             }
             waitTimer = 0.0f;
             isWaiting = false;
+
+            // got back to walking state
+            adultAnimator.SetBool("isHappy", false);
+            adultAnimator.SetBool("isBored", false);
 
             // Unexcite the current target exhibit
             if(target != null)

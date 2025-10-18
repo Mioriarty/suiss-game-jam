@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator spriteAnimator;
     public float acceleration;
     public float breakDamping;
     public float normalDamping;
@@ -59,6 +60,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) ||
             (Gamepad.current != null && Gamepad.current.rightTrigger.wasPressedThisFrame))
         {
+            // Play animation
+            spriteAnimator.SetTrigger("Accelerate");
+
             // add less force if we are close to max speed
             speedFactor = 1.0f - (rb.linearVelocity.magnitude / maxSpeed);
             speedFactor *= speedFactor; // square for smoother effect
