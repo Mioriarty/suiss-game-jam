@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         cloudAnimator.SetBool("isStunned", true);
-        directionRenderer.enabled = false;
+        directionRenderer.GetComponent<SpriteRenderer>().color = Color.gray;
         remainingStunTime = 0.5f;
         Vector3 collisionPoint = collision.contacts[0].point;
         Vector3 directionAway = (transform.position - collisionPoint).normalized;
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
             remainingStunTime -= Time.deltaTime;
             if(remainingStunTime <= 0) {
                 cloudAnimator.SetBool("isStunned", false);
-                directionRenderer.enabled = true;
+                directionRenderer.GetComponent<SpriteRenderer>().color = Color.red;
             }
             return;
         }
