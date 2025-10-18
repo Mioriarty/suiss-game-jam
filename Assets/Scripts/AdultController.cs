@@ -33,10 +33,21 @@ public class AdultController : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
+    {
         desiredObjectRenderer = desiredObject.GetComponent<SpriteRenderer>();
         CircleInterestingObject();
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        // find the sprite renderer named "AdultSprite"
+        SpriteRenderer spriteRenderer = null;
+        foreach (SpriteRenderer sr in spriteRenderers)
+        {
+            if (sr.gameObject.name == "AdultSprite")
+            {
+                spriteRenderer = sr;
+                break;
+            }
+        }
+
         if (spriteRenderer != null && spriteRenderer.sprite != null)
         {
             string spriteName = spriteRenderer.sprite.name;
@@ -58,10 +69,13 @@ public class AdultController : MonoBehaviour
                 ColorUtility.TryParseHtmlString("#614dfd", out barColor);
             }
 
+            Debug.Log("Adult sprite ID: " + id + " Color: " + barColor);
+
         }
         EnsureBoredomBar();
         if (boredomBarController != null)
-        {
+        {   
+
             boredomBarController.SetMaxBoredom(MaxBoredom);
             boredomBarController.SetFillColor(barColor);
         }
@@ -198,6 +212,12 @@ public class AdultController : MonoBehaviour
                 Debug.Log("Found " + exhibits.Length + " exhibits of interest.");
 
                 // select a random exhibit
+
+                if (exhibits.Length == 0)
+                {
+                    Debug.LogWarning("No exhibits found for adult's interests.");
+                    return;
+                }
                 targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
                 target = targetExhibit.gameObject;
             }
