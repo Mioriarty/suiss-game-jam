@@ -34,12 +34,11 @@ public class IntroScript : MonoBehaviour
             textProgression -= 1;
         }
 
-        if (textProgression > introTextArray.Length)
+        if (textProgression >= introTextArray.Length)
         {
-            LoadManager.GetComponent<LoadController>().LoadScene("IntroLevel");
+            LoadManager.GetComponent<LoadController>().LoadScene("Level 0");
         }
-
-        if (textProgression != currText)
+        else if (textProgression != currText)
         {
             introText.SetText(introTextArray[textProgression]);
             introImage.sprite = introSpriteArray[textProgression];

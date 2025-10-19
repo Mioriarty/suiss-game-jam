@@ -46,7 +46,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -143,4 +143,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   boringBg: {fileID: 8300000, guid: ca1dd8a4b3cb340cf93789b968a3f58e, type: 3}
-  excitingBg: {fileID: 8300000, guid: ca1dd8a4b3cb340cf93789b968a3f58e, type: 3}
+  excitingBg: {fileID: 8300000, guid: 4a9738f2516f8467a85bcc79322b0ae5, type: 3}
+  isExciting: 0

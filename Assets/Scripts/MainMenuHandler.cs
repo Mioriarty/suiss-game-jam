@@ -17,6 +17,7 @@ public class MainMenuHandler : MonoBehaviour
     
     string floatToDisplayable(float t)
     {
+        if (Mathf.Approximately(t, float.MaxValue)) { return "--:--"; }
         int secs = (int) t % 60;
         int mins = (int)t / 60;
         string secsBufferZero;

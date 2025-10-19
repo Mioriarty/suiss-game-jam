@@ -8,11 +8,14 @@ public static class StaticTracker
 {
     public static int nextLevel;
     public static bool devMode = false;
-    public static Dictionary<int, float> highscores = new Dictionary<int, float>{
-            {1, float.MaxValue },
-            {2, float.MaxValue},
-            {3, float.MaxValue}
-        };
+
+    public static Dictionary<int, float> highscores = new()
+    {
+        { 0, float.MaxValue },
+        { 1, float.MaxValue },
+        { 2, float.MaxValue },
+        { 3, float.MaxValue }
+    };
     public enum GameEndType { Success, Quit, TimeElapsed }
     public static GameResult gr;
 
