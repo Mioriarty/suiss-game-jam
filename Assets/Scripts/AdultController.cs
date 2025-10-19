@@ -88,7 +88,7 @@ public class AdultController : MonoBehaviour
         }
         EnsureBoredomBar();
         if (boredomBarController != null)
-        {   
+        {
 
             boredomBarController.SetMaxBoredom(MaxBoredom);
             boredomBarController.SetFillColor(barColor);
@@ -128,7 +128,7 @@ public class AdultController : MonoBehaviour
             boredomBarContainer.anchorMin = new Vector2(0.5f, 1f);
             boredomBarContainer.anchorMax = new Vector2(0.5f, 1f);
             boredomBarContainer.pivot    = new Vector2(0.5f, 1f);
-            boredomBarContainer.anchoredPosition = new Vector2(0f, -2f);
+            boredomBarContainer.anchoredPosition = new Vector2(22f, -2f);
         }
 
         // number of existing bars
