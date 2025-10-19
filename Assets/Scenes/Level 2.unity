@@ -224,6 +224,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
+--- !u!114 &19413984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7501691314536344889, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
+  m_PrefabInstance: {fileID: 19413983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &19413985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4636087812070289608, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
+  m_PrefabInstance: {fileID: 19413983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &29938628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5579767761754444527, guid: 8954581c0c6be2a4faed1adc11af4bc6, type: 3}
@@ -238,13 +260,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
+      propertyPath: itemHolder
+      value: 
+      objectReference: {fileID: 19413985}
+    - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: globalLight
       value: 
       objectReference: {fileID: 2070510009}
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: inventoryImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 19413984}
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: inventoryExhibit
       value: 

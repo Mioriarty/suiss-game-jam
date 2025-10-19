@@ -227,6 +227,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
+      propertyPath: itemHolder
+      value: 
+      objectReference: {fileID: 1279075789}
+    - target: {fileID: 942810101650968044, guid: 1d9cf5b1139714fcc99b05067a468878, type: 3}
       propertyPath: globalLight
       value: 
       objectReference: {fileID: 2136427092}
@@ -18763,6 +18767,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 438585829170095168, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
   m_PrefabInstance: {fileID: 1279075787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1279075789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4636087812070289608, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
+  m_PrefabInstance: {fileID: 1279075787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1282091420
 PrefabInstance:
   m_ObjectHideFlags: 0

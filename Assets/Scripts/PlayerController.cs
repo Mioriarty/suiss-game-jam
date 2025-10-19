@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public Exhibit inventoryExhibit;
     private Rigidbody2D rb;
-    public Image inventoryImage;
+    [FormerlySerializedAs("inventoryImage")] public Image itemHolder;
     public Light2D globalLight;
     public ParticleSystem ps;
     private float remainingStunTime = 0;
@@ -49,11 +50,11 @@ public class PlayerController : MonoBehaviour
     {
         if (inventoryExhibit != null)
         {
-            inventoryImage.sprite = inventoryExhibit.Image;
+            itemHolder.sprite = inventoryExhibit.Image;
         }
         else
         {
-            inventoryImage.sprite = null;
+            itemHolder.sprite = null;
         }
     }
 
