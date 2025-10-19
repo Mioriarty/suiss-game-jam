@@ -22,21 +22,19 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (isLevel && Time.time > startTime + failureSeconds)
-        {
-            EndLevelByTimeElapsed();
-        }
+        // if (isLevel && Time.time > startTime + failureSeconds) { EndLevelByTimeElapsed(); }
     }
 
     void EndLevelByTimeElapsed()
     {
-        StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.TimeElapsed, Time.time);
+        StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.TimeElapsed, Time.time - startTime);
         loadController.LoadScene("GameResultScene");
     }
     
     public void EndLevelByBoredom()
     {
-        StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.Success, Time.time);
+        StaticTracker.SetGameResult(levelNumber, StaticTracker.GameEndType.Success, Time.time - startTime);
+        StaticTracker.UpdateHighscore(levelNumber, Time.time - startTime);
         loadController.LoadScene("GameResultScene");
     }
     
