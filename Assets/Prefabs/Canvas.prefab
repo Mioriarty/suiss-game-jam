@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   loadController: {fileID: 3910204708004116984}
-  failureSeconds: 300
+  failureSeconds: 600
   isLevel: 1
   levelNumber: -1
 --- !u!114 &6636215439969642760
