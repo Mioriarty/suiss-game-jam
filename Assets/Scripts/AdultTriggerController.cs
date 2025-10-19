@@ -21,6 +21,11 @@ public class AdultTriggerController : MonoBehaviour
     private bool checkForAdultArrival = false;
     private bool checkForAdultArrival2 = false;
     private bool checkForAdultDeparture2 = false;
+
+    void Start()
+    {
+        textboxTextmanger.SetText("Press w to move forward. With A and D you steer my skateboard.");
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         GetComponent<Collider2D>().enabled = false;
