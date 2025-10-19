@@ -109,31 +109,31 @@ public class AdultTriggerController : MonoBehaviour
     private void ProlongInspectionTime()
     {
         adult.GetComponent<AdultController>().waitTimeAtExhibit = 1000000.0f;
-        Invoke("PrintText2", 9.0f);
+        Invoke("PrintText2", 7.5f);
     }
     private void PrintText2()
     {
         textboxTextmanger.SetText("He seems really interested...");
-        Invoke("PrintText3", 8.0f);
+        Invoke("PrintText3", 3.5f);
     }
 
     private void PrintText3()
     {
         textboxTextmanger.SetText("Ugh, this will take ages. We'll never get home...");
-        Invoke("PrintText4", 6.0f);
+        Invoke("PrintText4", 4f);
     }
 
     private void PrintText4()
     {
         textboxTextmanger.SetText("I need to make sure he won't find another book in this museum. But how?");
-        Invoke("PrintText5", 8.0f);
+        Invoke("PrintText5", 6.5f);
     }
 
     private void PrintText5()
     {
         textboxTextmanger.SetText("I have an apple core with me. Lets swap it with the next book he finds. Press K near it!");
         inventoryUI.SetActive(true);
-        Invoke("EnablePlayerControl", 4.0f);
+        Invoke("EnablePlayerControl", 3.5f);
     }
 
     private void PrintText11()

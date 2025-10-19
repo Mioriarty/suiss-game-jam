@@ -32,6 +32,10 @@ public class IntroScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) || (Gamepad.current != null && Gamepad.current.bButton.wasPressedThisFrame))
         {
             textProgression -= 1;
+            if (textProgression < 0)
+            {
+                textProgression = 0;
+            }
         }
 
         if (textProgression >= introTextArray.Length)
@@ -42,6 +46,7 @@ public class IntroScript : MonoBehaviour
         {
             introText.SetText(introTextArray[textProgression]);
             introImage.sprite = introSpriteArray[textProgression];
+            introImage.rectTransform.sizeDelta = Vector2.Scale(introImage.sprite.rect.size, new Vector2(introImage.rectTransform.sizeDelta.y / introImage.sprite.rect.size.y, introImage.rectTransform.sizeDelta.y / introImage.sprite.rect.size.y));
             currText = textProgression;
         }
     }
