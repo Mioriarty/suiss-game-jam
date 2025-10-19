@@ -27,15 +27,27 @@ public class GameEndScreenManager : MonoBehaviour
 
     }
 
+    String GetOrdinal(int number)
+    {
+        if (number % 10 == 1 && number % 100 != 11) { return $"{number}st"; }
+        else if (number % 10 == 2 && number % 100 != 12) { return $"{number}nd"; }
+        else if (number % 10 == 3 && number % 100 != 13) { return $"{number}rd"; }
+        else { return $"{number}th"; }
+    }
     void TimeElapsed()
     {
         gameResultAnnounce.SetText("You failed.");
-        gameDesc.SetText($"Your {res.Level}-th birthday bored you to death. At least your parents had a fun {res.EndTime} hours! ");
+        gameDesc.SetText($"Your {GetOrdinal(res.Level)} birthday bored you to death. At least your parents had a fun {StaticTracker.floatToDisplayable(res.EndTime)} minutes! ");
     }
     
     void Success()
     {
         gameResultAnnounce.SetText("You succeeded!");
-        gameDesc.SetText($"Your {res.Level}-th birthday turned into a fun minigame against your parents. And you only had to spend {(int) res.EndTime} hours at the museum! ");
+        if (res.Level == 0)
+        {
+            gameDesc.SetText("You completed the tutorial level! Congratulations! ");
+            return;
+        }
+        gameDesc.SetText($"Your {GetOrdinal(res.Level+6)} birthday turned into a fun minigame against your parents. And you only had to spend {StaticTracker.floatToDisplayable(res.EndTime)} minutes at the museum! ");
     }
 }

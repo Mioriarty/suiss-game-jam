@@ -425,8 +425,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65.2214, y: 0.00000047684}
-  m_SizeDelta: {x: 93.5571, y: 30}
+  m_AnchoredPosition: {x: -35.699, y: 0.00000047684}
+  m_SizeDelta: {x: 152.6, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &158928593
 CanvasRenderer:
@@ -884,8 +884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65.2214, y: -103.00001}
-  m_SizeDelta: {x: 93.5571, y: 30}
+  m_AnchoredPosition: {x: -35.69919, y: -101.93088}
+  m_SizeDelta: {x: 152.6015, y: 29.514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &403749215
 GameObject:
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: 7th B-Day
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
   m_sharedMaterial: {fileID: 863150422561899947, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
@@ -1399,18 +1399,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: IntroSequence
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1916821205}
-        m_TargetAssemblyTypeName: LoadController, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Level 0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &771909941
@@ -1780,8 +1768,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Highscores:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
+  m_sharedMaterial: {fileID: 863150422561899947, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2758,9 +2746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 2
-
-'
+  m_text: 8th B-Day
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
   m_sharedMaterial: {fileID: 863150422561899947, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
@@ -2873,8 +2859,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65.2214, y: -52.000004}
-  m_SizeDelta: {x: 93.5571, y: 30}
+  m_AnchoredPosition: {x: -35.69919, y: -51.757027}
+  m_SizeDelta: {x: 152.6015, y: 29.514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1625905531
 CanvasRenderer:
@@ -3301,9 +3287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 3
-
-'
+  m_text: 9th B-Day
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}
   m_sharedMaterial: {fileID: 863150422561899947, guid: 92ff6d73f01e0d94ea1906d3390a5cc8, type: 2}

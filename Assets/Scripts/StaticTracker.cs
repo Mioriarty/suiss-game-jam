@@ -48,4 +48,17 @@ public static class StaticTracker
     {
         return highscores[level];
     }
+    
+    public static string floatToDisplayable(float t)
+    {
+        if (Mathf.Approximately(t, float.MaxValue)) { return "--:--"; }
+        int secs = (int) t % 60;
+        int mins = (int)t / 60;
+        string secsBufferZero;
+        string minsBufferZero;
+        if (secs.ToString().Length == 1) { secsBufferZero = "0"; } else { secsBufferZero = ""; }
+        if (mins.ToString().Length == 1) { minsBufferZero = "0"; } else { minsBufferZero = ""; }
+        return minsBufferZero + mins + ":" + secsBufferZero + secs;
+    }
+
 }
