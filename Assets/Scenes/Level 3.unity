@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5696318968377277361, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
       propertyPath: levelNumber
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5696318968377277361, guid: 80a8447439f5ae8c4abf14ed44c2b772, type: 3}
       propertyPath: failureSeconds
