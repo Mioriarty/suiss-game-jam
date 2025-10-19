@@ -227,7 +227,7 @@ MonoBehaviour:
   cloudAnimator: {fileID: 4856226357685933093}
   directionRenderer: {fileID: 8191512351939099096}
   acceleration: 10
-  breakDamping: 2
+  breakDamping: 3
   normalDamping: 1
   speedFactor: 1
   turnSpeed: 200
@@ -238,7 +238,7 @@ MonoBehaviour:
   stoneEffect: 0.5
   helmetIntensity: 0.005
   inventoryExhibit: {fileID: 0}
-  inventoryImage: {fileID: 0}
+  itemHolder: {fileID: 0}
   globalLight: {fileID: 0}
   ps: {fileID: 0}
 --- !u!50 &6093753290981107761
