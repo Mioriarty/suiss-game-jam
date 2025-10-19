@@ -62,7 +62,7 @@ public class AdultController : MonoBehaviour
         {
             string spriteName = spriteRenderer.sprite.name;
             // split by underscore 
-            string id = spriteName.Split('n')[1].Split(' ')[0];
+            string id = spriteName.Split('n')[1].Split(' ')[0].Split('_')[0];
 
             int.TryParse(id, out int exhibitId);
 
@@ -77,6 +77,10 @@ public class AdultController : MonoBehaviour
             else if (exhibitId == 31)
             {
                 ColorUtility.TryParseHtmlString("#614dfd", out barColor);
+            }
+            else if (exhibitId == 41)
+            {
+                ColorUtility.TryParseHtmlString("#ffffff", out barColor);
             }
 
             Debug.Log("Adult sprite ID: " + id + " Color: " + barColor);
