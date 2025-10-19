@@ -27,11 +27,19 @@ public class PlayerController : MonoBehaviour
     public Light2D globalLight;
     public ParticleSystem ps;
     private float remainingStunTime = 0;
+    private AudioSource audioSource;
+
+    [Header("Audio Clips")]
+    public AudioClip accelerateClip;
+    public AudioClip brakeClip;
+    public AudioClip stunClip;
+    public AudioClip itemSwapClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         ps = GetComponentInChildren<ParticleSystem>();
         updateInventoryUI();
     }
@@ -44,6 +52,8 @@ public class PlayerController : MonoBehaviour
         Vector3 collisionPoint = collision.contacts[0].point;
         Vector3 directionAway = (transform.position - collisionPoint).normalized;
         rb.AddForce(directionAway * (pushBackForceOnStun * 5.0f), ForceMode2D.Impulse);
+
+        audioSource.PlayOneShot(stunClip);
     }
 
     void updateInventoryUI()
@@ -108,6 +118,8 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * (acceleration * accelerationFactor * speedFactor), ForceMode2D.Impulse);
 
             ps.Play();
+
+            audioSource.PlayOneShot(accelerateClip);
         }
 
         rb.linearDamping = normalDamping;
@@ -157,6 +169,8 @@ public class PlayerController : MonoBehaviour
                     exhibitController.SetExhibit(temp);
                     // Update inventory UI
                     updateInventoryUI();
+
+                    audioSource.PlayOneShot(itemSwapClip);
                 }
             }
         }
