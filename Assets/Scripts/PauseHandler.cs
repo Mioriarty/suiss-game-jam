@@ -4,6 +4,14 @@ using UnityEngine.InputSystem;
 
 public class PauseHandler : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject loadManager;
+    Vector3 playerStart;
+
+    void Start()
+    {
+        playerStart = player.transform.position;
+    }
     public GameObject pauseMenu;
     void Update()
     {
@@ -23,5 +31,15 @@ public class PauseHandler : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+    }
+    public void ToMainMenu()
+    {
+        UnpauseGame();
+        loadManager.GetComponent<LoadController>().LoadScene("MainMenu");
+    }
+    public void ResetPosition()
+    {
+        player.transform.position = playerStart;
+        UnpauseGame();
     }
 }
