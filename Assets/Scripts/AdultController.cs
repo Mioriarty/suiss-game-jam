@@ -33,9 +33,15 @@ public class AdultController : MonoBehaviour
     [SerializeField] BoredomBarController boredomBarController;
     [SerializeField] private Color barColor = Color.yellow;
 
+    [Header("AudioClips")]
+    private AudioSource audioSource;
+    public AudioClip[] boredomSounds;
+    public AudioClip[] interestSounds;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         _gameController = FindFirstObjectByType<GameController>();
         _gameController.RegisterAdult(this);
         desiredObjectRenderer = desiredObject.GetComponent<SpriteRenderer>();
@@ -167,11 +173,13 @@ public class AdultController : MonoBehaviour
                 {
                     SetBoredom(-10f);
                     adultAnimator.SetBool("isHappy", true);
+                    audioSource.PlayOneShot(interestSounds[UnityEngine.Random.Range(0, interestSounds.Length)]);
                 }
                 else
                 {
                     SetBoredom(10f);
                     adultAnimator.SetBool("isBored", true);
+                    audioSource.PlayOneShot(boredomSounds[UnityEngine.Random.Range(0, boredomSounds.Length)]);
                 }
             }
         }
