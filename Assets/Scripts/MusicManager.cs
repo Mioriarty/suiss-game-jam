@@ -13,6 +13,11 @@ public class MusicManager : MonoBehaviour
 
     private static MusicManager instance;
 
+    public static MusicManager Instance
+    {
+        get { return instance; }
+    }
+
     void Awake()
     {
         if (instance != null)
@@ -30,7 +35,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = boringBg;
+        audioSource.clip = isExciting ? excitingBg : boringBg;
         audioSource.loop = true;
         audioSource.Play();
     }

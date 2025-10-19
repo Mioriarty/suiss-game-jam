@@ -43,6 +43,7 @@ public class AdultTriggerController : MonoBehaviour
         // Call a function after 5 seconds to re-enable player control
         Invoke("ProlongInspectionTime", 0.6f);
 
+        MusicManager.Instance.SetExciting(false);
     }
 
     void Update()
@@ -151,12 +152,13 @@ public class AdultTriggerController : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
         directionIndicator.SetActive(true);
         checkIfSwapped = true;
+        MusicManager.Instance.SetExciting(true);
     }
 
     private void StartEndGame()
     {
         textBox.SetActive(false);
-        adult.GetComponent<AdultController>().speed = 0.7f;
+        adult.GetComponent<AdultController>().speed = 1.0f;
         player.GetComponent<PlayerController>().enabled = true;
         directionIndicator.SetActive(true);
         firstExhibit.enabled = true;
