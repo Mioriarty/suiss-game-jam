@@ -143,4 +143,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   boringBg: {fileID: 8300000, guid: ca1dd8a4b3cb340cf93789b968a3f58e, type: 3}
-  excitingBg: {fileID: 8300000, guid: ca1dd8a4b3cb340cf93789b968a3f58e, type: 3}
+  excitingBg: {fileID: 8300000, guid: 933fe16b8a4f24437ba659b111dd27b7, type: 3}
+  isExciting: 0
