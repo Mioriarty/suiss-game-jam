@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip boringBg;
     public AudioClip excitingBg;
 
-    private bool isExciting = false;
+    public bool isExciting = false;
 
     private AudioSource audioSource;
 
@@ -17,6 +17,7 @@ public class MusicManager : MonoBehaviour
     {
         if (instance != null)
         {
+            instance.SetExciting(isExciting);
             Destroy(gameObject);
             return;
         }
