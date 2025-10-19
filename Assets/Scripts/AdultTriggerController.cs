@@ -24,7 +24,7 @@ public class AdultTriggerController : MonoBehaviour
 
     void Start()
     {
-        textboxTextmanger.SetText("Press w to move forward. With A and D you steer my skateboard.");
+        textboxTextmanger.SetText("Press w to move forward. With A and D you steer my skateboard. S to break.");
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -160,5 +160,20 @@ public class AdultTriggerController : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
         directionIndicator.SetActive(true);
         firstExhibit.enabled = true;
+
+        Invoke("ShowEffectsHint", 20.0f);
+    }
+
+
+    private void ShowEffectsHint()
+    {
+        textBox.SetActive(true);
+        textboxTextmanger.SetText("Oh, one more thing: Some exhibits give special effects when in inventory. Good Luck!");
+        Invoke("HideTextBoxLastTime", 12.0f);
+    }
+
+    private void HideTextBoxLastTime()
+    {
+        textBox.SetActive(false);
     }
 }
