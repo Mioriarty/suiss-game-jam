@@ -630,14 +630,12 @@ MonoBehaviour:
   introTextArray:
   - I am so excited for my birthday present!
   - I hope it's something exciting!
-  - It's a museum ticket...
-  - "BORING!!!  Let\u2019s get REVENGE!"
-  - "We\u2019ll make the visit boring for THEM!"
+  - It's a museum ticket... BORING!!!
+  - How do I make it more fun?
   - 'First Idea: Skateboarding in the museum. Hahaha!'
   introSpriteArray:
   - {fileID: 21300000, guid: 7276bdea38a5fa7458a6e8894985f63a, type: 3}
   - {fileID: 21300000, guid: c742c97e8ef441645ab89e6600ae14a2, type: 3}
-  - {fileID: 21300000, guid: 18651685f9705e94c8b2bd3831b2e840, type: 3}
   - {fileID: 21300000, guid: 18651685f9705e94c8b2bd3831b2e840, type: 3}
   - {fileID: 21300000, guid: 18651685f9705e94c8b2bd3831b2e840, type: 3}
   - {fileID: 1810880197796642677, guid: c41fcbe5307615048a7eabe99b99ca85, type: 3}
