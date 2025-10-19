@@ -55,6 +55,7 @@ public class AdultTriggerController : MonoBehaviour
                 textboxTextmanger.SetText("Aha! With this, we can bore him a little.");
                 checkIfSwapped = false;
                 checkForAdultArrival = true;
+                adult.GetComponent<AdultController>().speed = 1.0f;
             }
         }
 
@@ -150,6 +151,7 @@ public class AdultTriggerController : MonoBehaviour
     private void EnablePlayerControl()
     {
         player.GetComponent<PlayerController>().enabled = true;
+        adult.GetComponent<AdultController>().speed = 0.5f;
         directionIndicator.SetActive(true);
         checkIfSwapped = true;
         MusicManager.Instance.SetExciting(true);
