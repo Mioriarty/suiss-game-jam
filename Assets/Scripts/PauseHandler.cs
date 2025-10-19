@@ -15,9 +15,16 @@ public class PauseHandler : MonoBehaviour
     public GameObject pauseMenu;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || (Gamepad.current != null && Gamepad.current.startButton.isPressed))
+        if (Input.GetKeyDown(KeyCode.Escape) || (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame))
         {
-            PauseGame();
+            if (Time.timeScale == 0)
+            {
+                UnpauseGame();
+            }
+            else
+            {
+                PauseGame();
+            }
         }
     }
 
