@@ -37,8 +37,6 @@ public class AdultController : MonoBehaviour
     void Start()
     {
         _gameController = FindFirstObjectByType<GameController>();
-        Debug.Log(_gameController);
-        Debug.Log(_gameController.isLevel);
         _gameController.RegisterAdult(this);
         desiredObjectRenderer = desiredObject.GetComponent<SpriteRenderer>();
         CircleInterestingObject();
@@ -194,17 +192,13 @@ public class AdultController : MonoBehaviour
             adultAnimator.SetBool("isHappy", false);
             adultAnimator.SetBool("isBored", false);
 
-            ExhibitController targetExhibit;
             if (nextTargets!= null && nextTargets.Count > 0)
             {
                 target = nextTargets[0];
                 nextTargets.RemoveAt(0);
-                Debug.Log("Selecting predefined target for adult. remaining targets: " + nextTargets.Count);
-                targetExhibit = target.GetComponent<ExhibitController>();
             }            
             else
             {
-                Debug.Log("Selecting new target for adult.");
                 ExhibitController[] exhibits = FindObjectsByType<ExhibitController>(FindObjectsSortMode.None);
 
                 // filter exhibits by interests
@@ -226,12 +220,8 @@ public class AdultController : MonoBehaviour
                     Debug.LogWarning("No exhibits found for adult's interests.");
                     return;
                 }
-                targetExhibit = exhibits[UnityEngine.Random.Range(0, exhibits.Length)];
-                target = targetExhibit.gameObject;
+                target = exhibits[UnityEngine.Random.Range(0, exhibits.Length)].gameObject;
             }
-            
-            Debug.Log("New target selected: " + target.transform.position);
-            Debug.Log("Current position: " + transform.position);
             path = AStarManager.instance.GeneratePath(transform.position, target.transform.position);
             reachedTarget = false;
         }
@@ -251,8 +241,6 @@ public class AdultController : MonoBehaviour
         if (path != null)
         {
             // Prioritize this drawing, put high z value
-
-
             Gizmos.color = Color.red;
 
             // Draw path as line

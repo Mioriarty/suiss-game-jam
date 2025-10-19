@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
     
     public void RegisterAdult(AdultController adult)
     {
-        if (notBoredAdults == null) notBoredAdults = new List<AdultController>();
+        notBoredAdults ??= new List<AdultController>();
         notBoredAdults.Add(adult);
     }
     

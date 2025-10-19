@@ -36,7 +36,6 @@ public class AStarManager : MonoBehaviour
         foreach (AStarNode startNode in startNodes)
         {
             List<AStarNode> nodesPath = GeneratePath(startNode, endNode);
-            Debug.Log(nodesPath.Count);
             if (nodesPath != null && (shortestPath == null || nodesPath.Count < shortestPath.Count))
             {
                 shortestPath = nodesPath;
